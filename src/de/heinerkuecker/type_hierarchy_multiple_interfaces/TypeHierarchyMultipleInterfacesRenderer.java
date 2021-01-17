@@ -433,42 +433,43 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     {
                         /*indent =*/ indent.add( subHierarchy.clazz );
                     }
-                    else
-                    {
-                        //indent.removeSubClass( subHierarchy.clazz );
-                    }
+                    //else
+                    //{
+                    //    //indent.removeSubClass( subHierarchy.clazz );
+                    //}
                     indent.removeSubClass( subHierarchy.clazz );
                 }
             }
-        }
 
-        // loop over sub sub hierarchies
-        for ( final TypeHierarchyMultipleInterfacesRendererHierarchy subHierarchy : subHierarchies )
-        {
-            //if ( subHierarchy.clazz.equals( java.util.AbstractQueue.class ) )
-            //{
-            //    System.out.println( "debug break: " + subHierarchy.clazz ); // TODO only for debug
-            //}
-
-            if ( alreadyRenderedClasses.contains( subHierarchy.clazz ) )
+            // loop over sub sub hierarchies
+            for ( final TypeHierarchyMultipleInterfacesRendererHierarchy subHierarchy1 : subHierarchies )
             {
-                if ( alreadyRenderedClasses.containsAll( subHierarchy.superClassAndInterfaces ) )
-                {
-                    if ( subHierarchy.subHierarchies != null &&
-                            subHierarchy.subHierarchies.length > 0 )
-                    {
-                        //TypeHierarchyMultipleInterfacesRendererIndent subIndent = indent.add( subHierarchy.clazz );
+                //if ( subHierarchy.clazz.equals( java.util.AbstractQueue.class ) )
+                //{
+                //    System.out.println( "debug break: " + subHierarchy.clazz ); // TODO only for debug
+                //}
 
-                        appendRecursive(
-                                buff ,
-                                //subIndent
-                                //indent ,
-                                indentPrefix ,
-                                alreadyRenderedClasses ,
-                                subHierarchy.subHierarchies );
+                if ( alreadyRenderedClasses.contains( subHierarchy1.clazz ) )
+                {
+                    if ( alreadyRenderedClasses.containsAll( subHierarchy1.superClassAndInterfaces ) )
+                    {
+                        if ( subHierarchy1.subHierarchies != null &&
+                                subHierarchy1.subHierarchies.length > 0 )
+                        {
+                            //TypeHierarchyMultipleInterfacesRendererIndent subIndent = indent.add( subHierarchy.clazz );
+
+                            appendRecursive(
+                                    buff ,
+                                    //subIndent
+                                    //indent ,
+                                    indentPrefix ,
+                                    alreadyRenderedClasses ,
+                                    subHierarchy1.subHierarchies );
+                        }
                     }
                 }
             }
+
         }
     }
 
