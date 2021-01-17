@@ -480,6 +480,10 @@ public class TypeHierarchyMultipleInterfacesRenderer
         {
             abstractPrefix = "abstract ";
         }
+        else if ( Modifier.isFinal( clazz.getModifiers() ) )
+        {
+            abstractPrefix = "final ";
+        }
         else
         {
             abstractPrefix = "";
