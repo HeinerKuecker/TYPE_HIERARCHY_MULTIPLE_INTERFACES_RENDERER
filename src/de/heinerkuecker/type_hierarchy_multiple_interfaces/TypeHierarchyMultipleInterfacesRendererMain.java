@@ -16,11 +16,19 @@ import java.util.Stack;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.DelayQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.DoubleAccumulator;
@@ -78,10 +86,17 @@ public class TypeHierarchyMultipleInterfacesRendererMain
             LinkedList.class ,
             ArrayDeque.class ,
             ArrayBlockingQueue.class ,
+            BlockingDeque.class ,
+            BlockingQueue.class ,
+            DelayQueue.class ,
+            SynchronousQueue.class ,
             PriorityBlockingQueue.class ,
             ConcurrentLinkedDeque.class ,
+            ConcurrentLinkedQueue.class ,
+            ConcurrentHashMap.class ,
             LinkedBlockingQueue.class ,
             LinkedBlockingDeque.class ,
+            LinkedTransferQueue.class ,
             HashMap.class ,
             HashSet.class ,
             LinkedHashMap.class ,
@@ -89,7 +104,8 @@ public class TypeHierarchyMultipleInterfacesRendererMain
             TreeMap.class ,
             TreeSet.class ,
             Stack.class ,
-            CopyOnWriteArrayList.class
+            CopyOnWriteArrayList.class ,
+            CopyOnWriteArraySet.class
         };
 
         //hierarchyRenderer.excludes.add( Object.class );
