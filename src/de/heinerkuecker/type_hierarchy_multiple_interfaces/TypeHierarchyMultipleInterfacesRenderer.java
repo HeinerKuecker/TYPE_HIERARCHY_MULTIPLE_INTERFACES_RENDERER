@@ -210,13 +210,16 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     clazz );
         }
 
-        checkForUnconnectedClass( extenderAndImplementerMap );
+        checkForUnconnectedClass(
+                //extenderAndImplementerMap
+                );
 
         return extenderAndImplementerMap;
     }
 
     private void checkForUnconnectedClass(
-            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap )
+            //final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap
+            )
     {
         for ( final Class<?> clazz : classes )
         {
