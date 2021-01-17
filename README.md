@@ -52,6 +52,11 @@ In der Javadoc-Betriebsart kann optional auf den Linien ein Tooltip mit dem HTML
 
 In the Javadoc operating mode, a tooltip with the HTML attribute title can optionally be generated on the lines for easier navigation in the tree.
 
+Dieses Repository ist ein Eclipse-Projekt und kann in Eclipse importiert werden.
+
+This repository is an Eclipse project and can be imported into Eclipse.
+
+
 Verwendung
 ----------
 
