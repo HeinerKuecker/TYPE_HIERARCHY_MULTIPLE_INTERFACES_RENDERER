@@ -195,7 +195,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
 
     private Map<Class<?>, Set<Class<?>>> createExtenderAndImplementerMap()
     {
-        final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap = new HashMap<>();
+        final Map<Class<?>, Set<Class<?>>> newExtenderAndImplementerMap = new HashMap<>();
 
         for ( final Class<?> clazz : classes )
         {
@@ -206,28 +206,25 @@ public class TypeHierarchyMultipleInterfacesRenderer
             }
 
             putSuperClassAndInterfacesRecursiveInExtenderAndImplementerMap(
-                    extenderAndImplementerMap ,
+                    newExtenderAndImplementerMap ,
                     clazz );
         }
 
-        checkForUnconnectedClass(
-                //extenderAndImplementerMap
-                );
+        checkForUnconnectedClass( newExtenderAndImplementerMap );
 
-        return extenderAndImplementerMap;
+        return newExtenderAndImplementerMap;
     }
 
     private void checkForUnconnectedClass(
-            //final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap
-            )
+            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMapParam )
     {
         for ( final Class<?> clazz : classes )
         {
-            if ( ! extenderAndImplementerMap.containsKey( clazz ) )
+            if ( ! extenderAndImplementerMapParam.containsKey( clazz ) )
             {
                 boolean isConnected = false;
 
-                for ( final Entry<Class<?>, Set<Class<?>>> extenderAndImplementerEntry : extenderAndImplementerMap.entrySet() )
+                for ( final Entry<Class<?>, Set<Class<?>>> extenderAndImplementerEntry : extenderAndImplementerMapParam.entrySet() )
                 {
                     if ( extenderAndImplementerEntry.getValue().contains( clazz ) )
                     {
