@@ -12,10 +12,12 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Stack;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -86,6 +88,8 @@ public class TypeHierarchyMultipleInterfacesRendererMain
             LinkedHashSet.class ,
             TreeMap.class ,
             TreeSet.class ,
+            Stack.class ,
+            CopyOnWriteArrayList.class
         };
 
         //hierarchyRenderer.excludes.add( Object.class );
