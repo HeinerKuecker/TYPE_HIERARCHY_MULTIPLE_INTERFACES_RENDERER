@@ -24,9 +24,9 @@ Verbindungen zwischen senkrechten und waagerechten Linien werden mit dem Plus-Ze
 
 Connections between vertical and horizontal lines are shown with the plus sign.
 
-Verbindungen zwischen senkrechten und waagerechten Linien treten auf, wenn die angezeigte Klasse oder Interface von mehr als nur einer einzigen Klasse erbt oder Interface erweitert.
+Verbindungen zwischen senkrechten und waagerechten Linien treten auf, wenn die angezeigte Klasse mindestens ein Interface implementiert oder das angezeigte Interface mehr als nur ein Interface erweitert.
 
-Connections between vertical and horizontal lines occur when the displayed class or interface inherits from or extends the interface from more than a single class.
+Connections between vertical and horizontal lines occur when the displayed class implements at least one interface or extends the displayed interface more than just one interface.
 
 Unerwünschte Klassen, Interfaces und Enums können ausgeschlossen werden.
 
