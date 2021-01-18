@@ -38,6 +38,11 @@ import java.util.concurrent.atomic.LongAdder;
 
 import javax.sql.rowset.spi.XmlWriter;
 
+/**
+ * Examples for using {@link TypeHierarchyMultipleInterfacesRenderer}.
+ *
+ * @author Heiner K&uuml;cker
+ */
 public class TypeHierarchyMultipleInterfacesRendererMain
 {
     /**

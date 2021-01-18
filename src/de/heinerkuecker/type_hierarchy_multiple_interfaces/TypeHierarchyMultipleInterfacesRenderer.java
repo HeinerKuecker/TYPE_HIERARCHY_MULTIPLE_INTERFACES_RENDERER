@@ -11,6 +11,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ * Small tool for displaying multiple inheritance with interfaces in Java in ASCII art in console.
+ *
+ * @author Heiner K&uuml;cker
+ */
 public class TypeHierarchyMultipleInterfacesRenderer
 {
     /**

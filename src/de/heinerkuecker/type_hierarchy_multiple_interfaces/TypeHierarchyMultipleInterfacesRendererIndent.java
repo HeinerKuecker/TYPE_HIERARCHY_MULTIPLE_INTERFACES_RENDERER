@@ -8,6 +8,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ *
+ *
+ * @author Heiner K&uuml;cker
+ */
 class TypeHierarchyMultipleInterfacesRendererIndent
 {
     //final TypeHierarchyMultipleInterfacesRendererIndent parent;

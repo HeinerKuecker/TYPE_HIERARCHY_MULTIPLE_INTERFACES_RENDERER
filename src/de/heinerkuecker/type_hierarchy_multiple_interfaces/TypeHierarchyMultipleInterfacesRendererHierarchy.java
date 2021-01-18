@@ -8,6 +8,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ *
+ *
+ * @author Heiner K&uuml;cker
+ */
 class TypeHierarchyMultipleInterfacesRendererHierarchy
 implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
 {
