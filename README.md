@@ -40,9 +40,9 @@ In der Eclipse IDE (JDT) kann man in der Javadoc Ansicht das Ergebnis ohne expli
 
 In the Eclipse IDE (JDT) you can see the result in the Javadoc view without explicitly generating the Javadoc as HTML.
 
-In der Javadoc-Betriebsart werden die Klassen in Javadoc-Verlinkung ausgegeben.
+In der Javadoc-Betriebsart werden die Klassen, Interfaces und Enumerationen in Javadoc-Verlinkung ausgegeben.
 
-In the Javadoc operating mode, the classes are output in Javadoc linking annotations.
+In the Javadoc operating mode, the classes, interfaces and enumerations are output in Javadoc links.
 
 In der Javadoc-Betriebsart wird jede Zeile mit einem linken Sternchen ausgegeben.
 
