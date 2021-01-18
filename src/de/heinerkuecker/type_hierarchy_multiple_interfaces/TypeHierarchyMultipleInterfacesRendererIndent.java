@@ -2,7 +2,6 @@ package de.heinerkuecker.type_hierarchy_multiple_interfaces;
 
 import static de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer.classToStr;
 
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
