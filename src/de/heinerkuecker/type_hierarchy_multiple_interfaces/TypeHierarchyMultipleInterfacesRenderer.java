@@ -442,6 +442,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
             }
 
             // loop over sub sub hierarchies
+            // Gib alle Untertypen aus, deren gesamte Obertypen ausgegeben wurden, so nahe wie möglich
+            // Output all subtypes whose total supertypes have been output, as close as possible
             for ( final TypeHierarchyMultipleInterfacesRendererHierarchy subHierarchy1 : subHierarchies )
             {
                 //if ( subHierarchy.clazz.equals( java.util.AbstractQueue.class ) )
