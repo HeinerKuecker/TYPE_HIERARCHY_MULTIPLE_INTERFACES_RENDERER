@@ -178,12 +178,12 @@ public class TypeHierarchyMultipleInterfacesRenderer
         return buff.toString();
     }
 
-    private Map<Class<?>, Set<Class<?>>> deepClone(
-            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap )
+    private static Map<Class<?>, Set<Class<?>>> deepClone(
+            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMapToClone )
     {
         final Map<Class<?>, Set<Class<?>>> clone = new HashMap<>();
 
-        for ( Entry<Class<?>, Set<Class<?>>> entry : extenderAndImplementerMap.entrySet() )
+        for ( Entry<Class<?>, Set<Class<?>>> entry : extenderAndImplementerMapToClone.entrySet() )
         {
             clone.put(
                     entry.getKey() ,
