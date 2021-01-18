@@ -1,0 +1,2 @@
+https://blog.hello2morrow.com/2017/04/managing-the-not-so-visible-dependencies-in-your-java-code/
+
