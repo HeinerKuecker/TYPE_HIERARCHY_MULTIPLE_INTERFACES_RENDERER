@@ -36,6 +36,10 @@ Es gibt auch eine Option zum Erzeugen als Javadoc, wobei das Ergebnis des Durchl
 
 There is also an option to generate as Javadoc, whereby the result of the run can be copied from the console into a Javadoc comment.
 
+In der Eclipse IDE (JDT) kann man in der Javadoc Ansicht das Ergebnis ohne explizites Generieren des Javadoc als HTML ansehen.
+
+In the Eclipse IDE (JDT) you can see the result in the Javadoc view without explicitly generating the Javadoc as HTML.
+
 In der Javadoc-Betriebsart werden die Klassen in Javadoc-Verlinkung ausgegeben.
 
 In the Javadoc operating mode, the classes are output in Javadoc linking annotations.
