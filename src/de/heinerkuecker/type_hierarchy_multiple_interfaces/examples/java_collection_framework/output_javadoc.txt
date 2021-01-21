@@ -1,0 +1,98 @@
+ * <pre>
+ * {@link java.lang.Object}
+ * |
+ * |  {@link java.io.Serializable}
+ * |  |
+ * |  |  {@link java.lang.Cloneable}
+ * |  |  |
+ * |  |  |  {@link java.lang.Iterable}
+ * |  |  |  |
+ * |  |  |  |  {@link java.util.Map}
+ * |  |  |  |  |
+ * |  |  |  |  |  {@link java.util.RandomAccess}
+ * |  |  |  |  |  |
+ * +--|--|--|--+--|--{@link java.util.AbstractMap}
+ * |  |  |  |  |  |  |
+ * |  +--+--|--+--|--+--{@link java.util.HashMap}
+ * |  |  |  |  |  |  |  |
+ * |  |  |  |  +--|--|--+--{@link java.util.LinkedHashMap}
+ * |  |  |  |  |  |  |
+ * |  |  |  +--|--|--|--{@link java.util.Collection}
+ * |  |  |     |  |  |  |
+ * +--|--|-----|--|--|--+--{@link java.util.AbstractCollection}
+ * |  |  |     |  |  |  |  |
+ * |  |  |     |  |  |  +--|--{@link java.util.List}
+ * |  |  |     |  |  |  |  |  |
+ * |  |  |     |  |  |  |  +--+--{@link java.util.AbstractList}
+ * |  |  |     |  |  |  |  |  |  |
+ * |  +--+-----|--+--|--|--|--+--+--{@link java.util.ArrayList}
+ * |  |  |     |  |  |  |  |  |  |
+ * |  +--+-----|--+--|--|--|--+--+--{@link java.util.Vector}
+ * |  |  |     |  |  |  |  |  |  |  |
+ * |  |  |     |  |  |  |  |  |  |  +--{@link java.util.Stack}
+ * |  |  |     |  |  |  |  |  |  |
+ * |  |  |     |  |  |  |  |  |  +--{@link java.util.AbstractSequentialList}
+ * |  |  |     |  |  |  |  |  |     |
+ * +--+--+-----|--+--|--|--|--+-----|--{@link java.util.concurrent.CopyOnWriteArrayList}
+ *    |  |     |     |  |  |  |     |
+ *    |  |     |     |  +--|--|-----|--{@link java.util.Queue}
+ *    |  |     |     |  |  |  |     |  |
+ *    |  |     |     |  |  +--|-----|--+--{@link java.util.AbstractQueue}
+ *    |  |     |     |  |  |  |     |  |  |
+ *    +--|-----|-----|--|--|--|-----|--+--+--{@link java.util.concurrent.ConcurrentLinkedQueue}
+ *    |  |     |     |  |  |  |     |  |  |
+ *    |  |     |     |  |  |  |     |  +--|--{@link java.util.Deque}
+ *    |  |     |     |  |  |  |     |  |  |  |
+ *    +--+-----|-----|--|--|--+-----+--|--|--+--{@link java.util.LinkedList}
+ *    |  |     |     |  |  |           |  |  |
+ *    +--+-----|-----|--|--+-----------|--|--+--{@link java.util.ArrayDeque}
+ *    |  |     |     |  |  |           |  |  |
+ *    +--|-----|-----|--|--+-----------|--|--+--{@link java.util.concurrent.ConcurrentLinkedDeque}
+ *    |  |     |     |  |  |           |  |  |
+ *    |  |     |     |  |  |           +--|--|--{@link java.util.concurrent.BlockingQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    +--|-----|-----|--|--|--------------+--|--+--{@link java.util.concurrent.ArrayBlockingQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    +--|-----|-----|--|--|--------------+--|--+--{@link java.util.concurrent.LinkedBlockingQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    +--|-----|-----|--|--|--------------+--|--+--{@link java.util.concurrent.PriorityBlockingQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    +--|-----|-----|--|--|--------------+--|--+--{@link java.util.concurrent.SynchronousQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    |  |     |     |  |  |              +--|--+--{@link java.util.concurrent.DelayQueue}
+ *    |  |     |     |  |  |              |  |  |
+ *    |  |     |     |  |  |              |  +--+--{@link java.util.concurrent.BlockingDeque}
+ *    |  |     |     |  |  |              |     |  |
+ *    +--|-----|-----|--|--|--------------+-----|--+--{@link java.util.concurrent.LinkedBlockingDeque}
+ *    |  |     |     |  |  |              |     |
+ *    |  |     |     |  |  |              |     +--{@link java.util.concurrent.TransferQueue}
+ *    |  |     |     |  |  |              |        |
+ *    +--|-----|-----|--|--|--------------+--------+--{@link java.util.concurrent.LinkedTransferQueue}
+ *    |  |     |     |  |  |
+ *    |  |     |     |  +--|--{@link java.util.Set}
+ *    |  |     |     |     |  |
+ *    |  |     |     |     +--+--{@link java.util.AbstractSet}
+ *    |  |     |     |        |  |
+ *    +--+-----|-----|--------+--+--{@link java.util.HashSet}
+ *    |  |     |     |        |  |  |
+ *    +--+-----|-----|--------+--|--+--{@link java.util.LinkedHashSet}
+ *    |  |     |     |        |  |
+ *    +--|-----|-----|--------|--+--{@link java.util.concurrent.CopyOnWriteArraySet}
+ *    |  |     |     |        |  |
+ *    |  |     |     |        +--|--{@link java.util.SortedSet}
+ *    |  |     |     |           |  |
+ *    |  |     |     |           |  +--{@link java.util.NavigableSet}
+ *    |  |     |     |           |     |
+ *    +--+-----|-----|-----------+-----+--{@link java.util.TreeSet}
+ *    |  |     |     |
+ *    |  |     +-----|--{@link java.util.SortedMap}
+ *    |  |     |     |  |
+ *    |  |     |     |  +--{@link java.util.NavigableMap}
+ *    |  |     |     |     |
+ *    +--+-----|-----+-----+--{@link java.util.TreeMap}
+ *    |        |     |
+ *    |        +-----|--{@link java.util.concurrent.ConcurrentMap}
+ *    |              |  |
+ *    +--------------+--+--{@link java.util.concurrent.ConcurrentHashMap}
+ * </pre>
+Copy the console output into your javadoc comment

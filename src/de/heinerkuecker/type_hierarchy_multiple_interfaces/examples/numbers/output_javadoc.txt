@@ -1,0 +1,50 @@
+ * <pre>
+ * {@link java.lang.Object}
+ * |
+ * |  {@link java.io.Serializable}
+ * |  |
+ * |  |  {@link java.lang.Comparable}
+ * |  |  |
+ * |  |  |  {@link java.lang.constant.Constable}
+ * |  |  |  |
+ * |  |  |  |  {@link java.lang.constant.ConstantDesc}
+ * |  |  |  |  |
+ * +--+--+--+--|--{@link java.lang.Enum}
+ * |  |  |  |  |  |
+ * |  |  |  |  |  +--{@link java.nio.file.AccessMode}
+ * |  |  |  |  |
+ * +--+--+--|--|--{@link java.lang.Character}
+ * |  |  |  |  |
+ * +--+--|--|--|--{@link java.lang.Number}
+ *    |  |  |  |  |
+ *    |  +--+--+--+--{@link java.lang.Double}
+ *    |  |  |  |  |
+ *    |  +--+--+--+--{@link java.lang.Float}
+ *    |  |  |  |  |
+ *    |  +--+--+--+--{@link java.lang.Integer}
+ *    |  |  |  |  |
+ *    |  +--+--+--+--{@link java.lang.Long}
+ *    |  |        |
+ *    |  +--------+--{@link java.math.BigDecimal}
+ *    |  |        |
+ *    |  +--------+--{@link java.math.BigInteger}
+ *    |  |        |
+ *    +--|--------+--{@link java.util.concurrent.atomic.AtomicInteger}
+ *    |  |        |
+ *    +--|--------+--{@link java.util.concurrent.atomic.AtomicLong}
+ *    |  |        |
+ *    |  +--------+--{@link java.lang.Byte}
+ *    |  |        |
+ *    |  +--------+--{@link java.lang.Short}
+ *    |           |
+ *    |           +--{@link java.util.concurrent.atomic.Striped64}
+ *    |              |
+ *    +--------------+--{@link java.util.concurrent.atomic.DoubleAccumulator}
+ *    |              |
+ *    +--------------+--{@link java.util.concurrent.atomic.DoubleAdder}
+ *    |              |
+ *    +--------------+--{@link java.util.concurrent.atomic.LongAccumulator}
+ *    |              |
+ *    +--------------+--{@link java.util.concurrent.atomic.LongAdder}
+ * </pre>
+Copy the console output into your javadoc comment

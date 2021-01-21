@@ -1,0 +1,47 @@
+class java.lang.Object
+|
+|  interface java.io.Serializable
+|  |
+|  |  interface java.lang.Comparable
+|  |  |
+|  |  |  interface java.lang.constant.Constable
+|  |  |  |
+|  |  |  |  interface java.lang.constant.ConstantDesc
+|  |  |  |  |
++--+--+--+--|--abstract class java.lang.Enum
+|  |  |  |  |  |
+|  |  |  |  |  +--final class java.nio.file.AccessMode
+|  |  |  |  |
++--+--+--|--|--final class java.lang.Character
+|  |  |  |  |
++--+--|--|--|--abstract class java.lang.Number
+   |  |  |  |  |
+   |  +--+--+--+--final class java.lang.Double
+   |  |  |  |  |
+   |  +--+--+--+--final class java.lang.Float
+   |  |  |  |  |
+   |  +--+--+--+--final class java.lang.Integer
+   |  |  |  |  |
+   |  +--+--+--+--final class java.lang.Long
+   |  |        |
+   |  +--------+--class java.math.BigDecimal
+   |  |        |
+   |  +--------+--class java.math.BigInteger
+   |  |        |
+   +--|--------+--class java.util.concurrent.atomic.AtomicInteger
+   |  |        |
+   +--|--------+--class java.util.concurrent.atomic.AtomicLong
+   |  |        |
+   |  +--------+--final class java.lang.Byte
+   |  |        |
+   |  +--------+--final class java.lang.Short
+   |           |
+   |           +--abstract class java.util.concurrent.atomic.Striped64
+   |              |
+   +--------------+--class java.util.concurrent.atomic.DoubleAccumulator
+   |              |
+   +--------------+--class java.util.concurrent.atomic.DoubleAdder
+   |              |
+   +--------------+--class java.util.concurrent.atomic.LongAccumulator
+   |              |
+   +--------------+--class java.util.concurrent.atomic.LongAdder

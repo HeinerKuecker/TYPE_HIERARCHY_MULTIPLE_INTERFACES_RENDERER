@@ -1,0 +1,95 @@
+class java.lang.Object
+|
+|  interface java.io.Serializable
+|  |
+|  |  interface java.lang.Cloneable
+|  |  |
+|  |  |  interface java.lang.Iterable
+|  |  |  |
+|  |  |  |  interface java.util.Map
+|  |  |  |  |
+|  |  |  |  |  interface java.util.RandomAccess
+|  |  |  |  |  |
++--|--|--|--+--|--abstract class java.util.AbstractMap
+|  |  |  |  |  |  |
+|  +--+--|--+--|--+--class java.util.HashMap
+|  |  |  |  |  |  |  |
+|  |  |  |  +--|--|--+--class java.util.LinkedHashMap
+|  |  |  |  |  |  |
+|  |  |  +--|--|--|--interface java.util.Collection
+|  |  |     |  |  |  |
++--|--|-----|--|--|--+--abstract class java.util.AbstractCollection
+|  |  |     |  |  |  |  |
+|  |  |     |  |  |  +--|--interface java.util.List
+|  |  |     |  |  |  |  |  |
+|  |  |     |  |  |  |  +--+--abstract class java.util.AbstractList
+|  |  |     |  |  |  |  |  |  |
+|  +--+-----|--+--|--|--|--+--+--class java.util.ArrayList
+|  |  |     |  |  |  |  |  |  |
+|  +--+-----|--+--|--|--|--+--+--class java.util.Vector
+|  |  |     |  |  |  |  |  |  |  |
+|  |  |     |  |  |  |  |  |  |  +--class java.util.Stack
+|  |  |     |  |  |  |  |  |  |
+|  |  |     |  |  |  |  |  |  +--abstract class java.util.AbstractSequentialList
+|  |  |     |  |  |  |  |  |     |
++--+--+-----|--+--|--|--|--+-----|--class java.util.concurrent.CopyOnWriteArrayList
+   |  |     |     |  |  |  |     |
+   |  |     |     |  +--|--|-----|--interface java.util.Queue
+   |  |     |     |  |  |  |     |  |
+   |  |     |     |  |  +--|-----|--+--abstract class java.util.AbstractQueue
+   |  |     |     |  |  |  |     |  |  |
+   +--|-----|-----|--|--|--|-----|--+--+--class java.util.concurrent.ConcurrentLinkedQueue
+   |  |     |     |  |  |  |     |  |  |
+   |  |     |     |  |  |  |     |  +--|--interface java.util.Deque
+   |  |     |     |  |  |  |     |  |  |  |
+   +--+-----|-----|--|--|--+-----+--|--|--+--class java.util.LinkedList
+   |  |     |     |  |  |           |  |  |
+   +--+-----|-----|--|--+-----------|--|--+--class java.util.ArrayDeque
+   |  |     |     |  |  |           |  |  |
+   +--|-----|-----|--|--+-----------|--|--+--class java.util.concurrent.ConcurrentLinkedDeque
+   |  |     |     |  |  |           |  |  |
+   |  |     |     |  |  |           +--|--|--interface java.util.concurrent.BlockingQueue
+   |  |     |     |  |  |              |  |  |
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.ArrayBlockingQueue
+   |  |     |     |  |  |              |  |  |
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.LinkedBlockingQueue
+   |  |     |     |  |  |              |  |  |
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.PriorityBlockingQueue
+   |  |     |     |  |  |              |  |  |
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.SynchronousQueue
+   |  |     |     |  |  |              |  |  |
+   |  |     |     |  |  |              +--|--+--class java.util.concurrent.DelayQueue
+   |  |     |     |  |  |              |  |  |
+   |  |     |     |  |  |              |  +--+--interface java.util.concurrent.BlockingDeque
+   |  |     |     |  |  |              |     |  |
+   +--|-----|-----|--|--|--------------+-----|--+--class java.util.concurrent.LinkedBlockingDeque
+   |  |     |     |  |  |              |     |
+   |  |     |     |  |  |              |     +--interface java.util.concurrent.TransferQueue
+   |  |     |     |  |  |              |        |
+   +--|-----|-----|--|--|--------------+--------+--class java.util.concurrent.LinkedTransferQueue
+   |  |     |     |  |  |
+   |  |     |     |  +--|--interface java.util.Set
+   |  |     |     |     |  |
+   |  |     |     |     +--+--abstract class java.util.AbstractSet
+   |  |     |     |        |  |
+   +--+-----|-----|--------+--+--class java.util.HashSet
+   |  |     |     |        |  |  |
+   +--+-----|-----|--------+--|--+--class java.util.LinkedHashSet
+   |  |     |     |        |  |
+   +--|-----|-----|--------|--+--class java.util.concurrent.CopyOnWriteArraySet
+   |  |     |     |        |  |
+   |  |     |     |        +--|--interface java.util.SortedSet
+   |  |     |     |           |  |
+   |  |     |     |           |  +--interface java.util.NavigableSet
+   |  |     |     |           |     |
+   +--+-----|-----|-----------+-----+--class java.util.TreeSet
+   |  |     |     |
+   |  |     +-----|--interface java.util.SortedMap
+   |  |     |     |  |
+   |  |     |     |  +--interface java.util.NavigableMap
+   |  |     |     |     |
+   +--+-----|-----+-----+--class java.util.TreeMap
+   |        |     |
+   |        +-----|--interface java.util.concurrent.ConcurrentMap
+   |              |  |
+   +--------------+--+--class java.util.concurrent.ConcurrentHashMap
