@@ -1,8 +1,8 @@
 # TYPE_HIERARCHY_MULTIPLE_INTERFACES_RENDERER
 Small tool for displaying multiple inheritance with interfaces in Java in ASCII art in console
 
-Kleines Werkzeug zum Anzeigen von Mehrfachvererbung mit Interfaces in Java
-==========================================================================
+Kleines Werkzeug zum Anzeigen von Mehrfachvererbung mit Interfaces in Java in ASCII Art in der Konsole
+======================================================================================================
 
 Leider wird in der Java Hierarchy View in Eclipse (und wahrscheinlich auch in IntelliJ, weiss ich nicht genau, ich benutze Eclipse) keine Mehrfachvererbung mit Interfaces angezeigt.
 
@@ -64,8 +64,8 @@ This repository is an Eclipse project and can be imported into Eclipse.
 Verwendung
 ----------
 
-Use
----
+Usage
+-----
 
 Kopieren der Klassen dieses Werkzeuges in einen Quell-Ordner im aktuellen Projekt, zum Beispiel mit dem Namen tools.
 
