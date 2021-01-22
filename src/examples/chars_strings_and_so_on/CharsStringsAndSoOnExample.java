@@ -1,4 +1,4 @@
-package de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.chars_strings_and_so_on;
+package examples.chars_strings_and_so_on;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

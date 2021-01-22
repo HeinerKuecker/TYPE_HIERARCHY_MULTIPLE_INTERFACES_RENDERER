@@ -1,4 +1,4 @@
-package de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.java_collection_framework;
+package examples.java_collection_framework;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

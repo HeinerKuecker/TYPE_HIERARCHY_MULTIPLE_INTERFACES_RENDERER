@@ -1,4 +1,4 @@
-package de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.numbers;
+package examples.numbers;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

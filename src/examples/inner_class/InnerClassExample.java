@@ -1,4 +1,4 @@
-package de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.inner_class;
+package examples.inner_class;
 
 import java.util.ArrayList;
 
