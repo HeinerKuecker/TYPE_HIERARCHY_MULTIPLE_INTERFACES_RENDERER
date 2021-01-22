@@ -1,0 +1,25 @@
+ * <pre>
+ * {@link java.lang.Object}
+ * |
+ * |  {@link java.io.Serializable}
+ * |  |
+ * |  |  {@link java.lang.Cloneable}
+ * |  |  |
+ * |  |  |  {@link java.lang.Iterable}
+ * |  |  |  |
+ * |  |  |  |  {@link java.util.RandomAccess}
+ * |  |  |  |  |
+ * |  |  |  +--|--{@link java.util.Collection}
+ * |  |  |     |  |
+ * +--|--|-----|--+--{@link java.util.AbstractCollection}
+ *    |  |     |  |  |
+ *    |  |     |  +--|--{@link java.util.List}
+ *    |  |     |     |  |
+ *    |  |     |     +--+--{@link java.util.AbstractList}
+ *    |  |     |        |  |
+ *    +--+-----+--------+--+--{@link java.util.ArrayList}
+ *                            |
+ *                            +--{@link de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.inner_class.InnerClassExample.AbstractInner}
+ *                            |
+ *                            +--{@link de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.inner_class.InnerClassExample.FinalInner}
+ * </pre>

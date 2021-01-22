@@ -1,0 +1,23 @@
+class java.lang.Object
+|
+|  interface java.io.Serializable
+|  |
+|  |  interface java.lang.Cloneable
+|  |  |
+|  |  |  interface java.lang.Iterable
+|  |  |  |
+|  |  |  |  interface java.util.RandomAccess
+|  |  |  |  |
+|  |  |  +--|--interface java.util.Collection
+|  |  |     |  |
++--|--|-----|--+--abstract class java.util.AbstractCollection
+   |  |     |  |  |
+   |  |     |  +--|--interface java.util.List
+   |  |     |     |  |
+   |  |     |     +--+--abstract class java.util.AbstractList
+   |  |     |        |  |
+   +--+-----+--------+--+--class java.util.ArrayList
+                           |
+                           +--abstract class de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.inner_class.InnerClassExample.AbstractInner
+                           |
+                           +--final class de.heinerkuecker.type_hierarchy_multiple_interfaces.examples.inner_class.InnerClassExample.FinalInner
