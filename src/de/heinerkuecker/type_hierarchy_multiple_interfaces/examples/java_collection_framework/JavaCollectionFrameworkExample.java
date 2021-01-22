@@ -32,7 +32,7 @@ import de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultiple
  *
  * @author Heiner K&uuml;cker
  */
-public class Run
+public class JavaCollectionFrameworkExample
 {
     /**
      * Example for usage.
