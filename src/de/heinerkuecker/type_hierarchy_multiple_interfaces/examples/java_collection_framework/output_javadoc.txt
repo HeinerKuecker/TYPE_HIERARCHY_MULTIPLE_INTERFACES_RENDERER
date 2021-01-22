@@ -95,4 +95,3 @@
  *    |              |  |
  *    +--------------+--+--{@link java.util.concurrent.ConcurrentHashMap}
  * </pre>
-Copy the console output into your javadoc comment

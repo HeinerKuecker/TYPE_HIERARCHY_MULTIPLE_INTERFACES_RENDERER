@@ -15,6 +15,10 @@ import java.util.Set;
  */
 class TypeHierarchyMultipleInterfacesRendererIndent
 {
+    final boolean withAbstractOrFinal;
+
+    final boolean withEnum;
+
     //final TypeHierarchyMultipleInterfacesRendererIndent parent;
 
     // reference to global data structure
@@ -33,12 +37,17 @@ class TypeHierarchyMultipleInterfacesRendererIndent
      * @param classes
      */
     TypeHierarchyMultipleInterfacesRendererIndent(
+            final boolean withAbstractOrFinal ,
+            final boolean withEnum ,
             final boolean renderJavadocTitleAttribute ,
             //final TypeHierarchyMultipleInterfacesRendererIndent parent ,
             final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap ,
             //final String lineSeparatorStr ,
             final Class<?>[] classes )
     {
+        this.withAbstractOrFinal = withAbstractOrFinal;
+        this.withEnum = withEnum;
+
         this.renderJavadocTitleAttribute = renderJavadocTitleAttribute;
         //this.parent = parent;
         this.extenderAndImplementerMap = extenderAndImplementerMap;
@@ -71,7 +80,14 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                     tooltipBuff.append( "&#010;" );
                 }
 
-                tooltipBuff.append( classToStr( clazz ) );
+                final String classStr =
+                        //.getName()
+                        classToStr(
+                                clazz ,
+                                this.withAbstractOrFinal ,
+                                this.withEnum );
+
+                tooltipBuff.append( classStr );
             }
 
             if ( clazz == null )
@@ -84,7 +100,14 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                 // line connector
                 if ( renderJavadocTitleAttribute )
                 {
-                    buff.append( "<b title='" + classToStr( clazz )/*.getName()*/ + "'>+</b>" );
+                    final String classStr =
+                            //.getName()
+                            classToStr(
+                                    clazz ,
+                                    this.withAbstractOrFinal ,
+                                    this.withEnum );
+
+                    buff.append( "<b title='" + classStr + "'>+</b>" );
                 }
                 else
                 {
@@ -107,7 +130,14 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                 if ( renderJavadocTitleAttribute )
                 {
                     //buff.append( "<b title='" + clazz/*.getName()*/ + "'>|</b>" );
-                    buff.append( "<b title='" + classToStr( clazz )/*.getName()*/ + "'>|</b>" );
+                    final String classStr =
+                            //.getName()
+                            classToStr(
+                                    clazz ,
+                                    this.withAbstractOrFinal ,
+                                    this.withEnum );
+
+                    buff.append( "<b title='" + classStr + "'>|</b>" );
                 }
                 else
                 {
@@ -175,9 +205,16 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
         if ( renderJavadocTitleAttribute )
         {
+            final String classStr =
+                    //.getName()
+                    classToStr(
+                            classToAdd ,
+                            this.withAbstractOrFinal ,
+                            this.withEnum );
+
             this.lineSeparatorStr =
                     this.lineSeparatorStr +
-                    "<b title='" + classToStr( classToAdd )/*.getName()*/ + "'>|</b>  ";
+                    "<b title='" + classStr + "'>|</b>  ";
         }
         else
         {
@@ -331,7 +368,14 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             {
                 if ( renderJavadocTitleAttribute )
                 {
-                    buff.append( "<b title='" + classToStr( this.classes[ i ] )/*.getName()*/ + "'>|</b>" );
+                    final String classStr =
+                            //.getName()
+                            classToStr(
+                                    this.classes[ i ] ,
+                                    this.withAbstractOrFinal ,
+                                    this.withEnum );
+
+                    buff.append( "<b title='" + classStr + "'>|</b>" );
                 }
                 else
                 {

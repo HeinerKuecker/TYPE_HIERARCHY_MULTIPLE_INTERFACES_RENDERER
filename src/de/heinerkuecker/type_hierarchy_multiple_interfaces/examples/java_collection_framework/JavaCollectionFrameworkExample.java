@@ -73,12 +73,13 @@ public class JavaCollectionFrameworkExample
         };
 
         // Try different options
+        hierarchyRenderer.withAbstractOrFinal = true;
+        hierarchyRenderer.withEnum = true;
         //hierarchyRenderer.excludes.add( Object.class );
-        //hierarchyRenderer.javadocMode = true;
+        hierarchyRenderer.javadocMode = true;
         //hierarchyRenderer.renderJavadocTitleAttribute = true;
 
         System.out.println( hierarchyRenderer.render() );
-
     }
 
 }

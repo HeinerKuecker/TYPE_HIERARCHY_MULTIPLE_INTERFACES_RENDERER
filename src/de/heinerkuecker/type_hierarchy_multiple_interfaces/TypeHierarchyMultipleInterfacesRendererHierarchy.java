@@ -106,7 +106,19 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
         // Hier wird ausgenutzt, dass die to string Methode von Klassen den Prefix class liefert und so Klassen vor Interfaces einsortiert werden
         // This makes use of the fact that the to string method of classes supplies the prefix class and so classes are sorted in front of interfaces
         //return this.clazz.toString().compareTo( o.clazz.toString() );
-        return classToStr( this.clazz ).compareTo( classToStr( o.clazz ) );
+        final String thisClassStr =
+                classToStr(
+                        this.clazz ,
+                        false ,
+                        false );
+
+        final String otherClassStr =
+                classToStr(
+                        o.clazz ,
+                        false ,
+                        false );
+
+        return thisClassStr.compareTo( otherClassStr );
     }
 
     @Override

@@ -1,5 +1,7 @@
 package de.heinerkuecker.type_hierarchy_multiple_interfaces;
 
+import static de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer.classToStr;
+
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import de.heinerkuecker.inner_or_nested_class_names_in_dot_notation.InnerOrNestedClassName;
+import de.heinerkuecker.type_prefix.TypePrefix;
 
 /**
  * Small tool for displaying multiple inheritance with interfaces in Java in ASCII art in console.
@@ -24,9 +29,19 @@ public class TypeHierarchyMultipleInterfacesRenderer
     public boolean javadocMode;
 
     /**
-     * Output ascii art lines with HTML attribute title with type names.
+     * Output ascii art lines with HTML attribute title with type names as tooltip.
      */
     public boolean renderJavadocTitleAttribute;
+
+    /**
+     * Output abstract and final modifier of class.
+     */
+    public boolean withAbstractOrFinal;
+
+    /**
+     * Output enum {@link Enum} as 'enum', not as 'final class'.
+     */
+    public boolean withEnum;
 
     /**
      * Classes, interfaces, enumerations to show.
@@ -98,6 +113,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
         //TypeHierarchyMultipleInterfacesRendererIndent indent =
         indent =
                 new TypeHierarchyMultipleInterfacesRendererIndent(
+                        withAbstractOrFinal ,
+                        withEnum ,
                         //renderJavadocTitleAttribute
                         ( this.javadocMode ? this.renderJavadocTitleAttribute : false ) ,
                         //parent
@@ -139,11 +156,21 @@ public class TypeHierarchyMultipleInterfacesRenderer
             if ( javadocMode )
             {
                 buff.append( "{@link " ); // begin java doc link
-                buff.append( hierarchy.clazz.getName() );
+                //buff.append( hierarchy.clazz.getName() );
+                buff.append(
+                        InnerOrNestedClassName.innerOrNestedClassName(
+                                hierarchy.clazz ) );
             }
             else
             {
-                buff.append( classToStr( hierarchy.clazz )/*.getName()*/ );
+                final String classStr =
+                        //.getName()
+                        classToStr(
+                                hierarchy.clazz ,
+                                this.withAbstractOrFinal ,
+                                this.withEnum );
+
+                buff.append( classStr );
             }
 
             if ( javadocMode )
@@ -419,11 +446,21 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     if ( javadocMode )
                     {
                         buff.append( "{@link " ); // begin java doc link
-                        buff.append( subHierarchy.clazz.getName() );
+                        //buff.append( subHierarchy.clazz.getName() );
+                        buff.append(
+                                InnerOrNestedClassName.innerOrNestedClassName(
+                                        subHierarchy.clazz ) );
                     }
                     else
                     {
-                        buff.append( classToStr( subHierarchy.clazz )/*.getName()*/ );
+                        final String classStr =
+                                //.getName()
+                                classToStr(
+                                        subHierarchy.clazz ,
+                                        this.withAbstractOrFinal ,
+                                        this.withEnum );
+
+                        buff.append( classStr );
                     }
 
                     if ( javadocMode )
@@ -481,23 +518,34 @@ public class TypeHierarchyMultipleInterfacesRenderer
     }
 
     static String classToStr(
-            final Class<?> clazz )
+            final Class<?> clazz ,
+            final boolean withAbstractOrFinal ,
+            final boolean withEnum )
     {
-        final String abstractPrefix;
-        if ( ( ! clazz.isInterface() ) && Modifier.isAbstract( clazz.getModifiers() ) )
-        {
-            abstractPrefix = "abstract ";
-        }
-        else if ( Modifier.isFinal( clazz.getModifiers() ) )
-        {
-            abstractPrefix = "final ";
-        }
-        else
-        {
-            abstractPrefix = "";
-        }
+        //final String abstractPrefix;
+        //if ( ( ! clazz.isInterface() ) && Modifier.isAbstract( clazz.getModifiers() ) )
+        //{
+        //    abstractPrefix = "abstract ";
+        //}
+        //else if ( Modifier.isFinal( clazz.getModifiers() ) )
+        //{
+        //    abstractPrefix = "final ";
+        //}
+        //else
+        //{
+        //    abstractPrefix = "";
+        //}
 
-        return abstractPrefix + clazz;
+        // TODO InnerOrNestedClassName
+        //return abstractPrefix + clazz;
+
+        return
+                TypePrefix.getTypePrefix(
+                        clazz ,
+                        withAbstractOrFinal ,
+                        withEnum ) +
+                InnerOrNestedClassName.innerOrNestedClassName(
+                        clazz );
     }
 
     /**

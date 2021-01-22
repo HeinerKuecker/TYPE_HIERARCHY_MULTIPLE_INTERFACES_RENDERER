@@ -10,7 +10,7 @@ class java.lang.Object
 |  |  |  |  |
 +--+--+--+--|--abstract class java.lang.Enum
 |  |  |  |  |  |
-|  |  |  |  |  +--final class java.nio.file.AccessMode
+|  |  |  |  |  +--enum java.nio.file.AccessMode
 |  |  |  |  |
 +--+--+--|--|--final class java.lang.Character
 |  |  |  |  |
@@ -24,17 +24,17 @@ class java.lang.Object
    |  |  |  |  |
    |  +--+--+--+--final class java.lang.Long
    |  |        |
-   |  +--------+--class java.math.BigDecimal
-   |  |        |
-   |  +--------+--class java.math.BigInteger
-   |  |        |
-   +--|--------+--class java.util.concurrent.atomic.AtomicInteger
-   |  |        |
-   +--|--------+--class java.util.concurrent.atomic.AtomicLong
-   |  |        |
    |  +--------+--final class java.lang.Byte
    |  |        |
    |  +--------+--final class java.lang.Short
+   |  |        |
+   |  +--------+--class java.math.BigDecimal
+   |  |        |
+   |  +--------+--class java.math.BigInteger
+   |           |
+   +-----------+--class java.util.concurrent.atomic.AtomicInteger
+   |           |
+   +-----------+--class java.util.concurrent.atomic.AtomicLong
    |           |
    |           +--abstract class java.util.concurrent.atomic.Striped64
    |              |
