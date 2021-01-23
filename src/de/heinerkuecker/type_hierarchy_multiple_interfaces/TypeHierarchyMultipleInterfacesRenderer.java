@@ -1,8 +1,5 @@
 package de.heinerkuecker.type_hierarchy_multiple_interfaces;
 
-import static de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer.classToStr;
-
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,7 +28,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
     /**
      * Output ascii art lines with HTML attribute title with type names as tooltip.
      */
-    public boolean renderJavadocTitleAttribute;
+    public boolean renderJavadocTooltips;
 
     /**
      * Output abstract and final modifier of class.
@@ -115,8 +112,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 new TypeHierarchyMultipleInterfacesRendererIndent(
                         withAbstractOrFinal ,
                         withEnum ,
-                        //renderJavadocTitleAttribute
-                        ( this.javadocMode ? this.renderJavadocTitleAttribute : false ) ,
+                        //renderJavadocTooltips
+                        ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
                         //parent
                         //null ,
                         //indentPrefix ,

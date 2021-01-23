@@ -32,7 +32,7 @@ public class InnerClassExample
         hierarchyRenderer.withEnum = true;
         //hierarchyRenderer.excludes.add( Object.class );
         //hierarchyRenderer.javadocMode = true;
-        //hierarchyRenderer.renderJavadocTitleAttribute = true;
+        //hierarchyRenderer.renderJavadocTooltips = true;
 
         System.out.println( hierarchyRenderer.render() );
     }

@@ -24,7 +24,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
     // reference to global data structure
     private final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap;
 
-    final boolean renderJavadocTitleAttribute;
+    final boolean renderJavadocTooltips;
 
     String lineSeparatorStr = "";
 
@@ -39,7 +39,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
     TypeHierarchyMultipleInterfacesRendererIndent(
             final boolean withAbstractOrFinal ,
             final boolean withEnum ,
-            final boolean renderJavadocTitleAttribute ,
+            final boolean renderJavadocTooltips ,
             //final TypeHierarchyMultipleInterfacesRendererIndent parent ,
             final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap ,
             //final String lineSeparatorStr ,
@@ -48,7 +48,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
         this.withAbstractOrFinal = withAbstractOrFinal;
         this.withEnum = withEnum;
 
-        this.renderJavadocTitleAttribute = renderJavadocTitleAttribute;
+        this.renderJavadocTooltips = renderJavadocTooltips;
         //this.parent = parent;
         this.extenderAndImplementerMap = extenderAndImplementerMap;
 
@@ -69,7 +69,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
         for ( final Class<?> clazz : this.classes )
         {
-            if ( renderJavadocTitleAttribute &&
+            if ( renderJavadocTooltips &&
                     clazz != null &&
                     superClassAndInterfaces.contains( clazz ) )
             {
@@ -98,7 +98,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             else if ( superClassAndInterfaces.contains( clazz ) )
             {
                 // line connector
-                if ( renderJavadocTitleAttribute )
+                if ( renderJavadocTooltips )
                 {
                     final String classStr =
                             //.getName()
@@ -114,7 +114,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                     buff.append( '+' );
                 }
 
-                if ( renderJavadocTitleAttribute )
+                if ( renderJavadocTooltips )
                 {
                     subIndentStr = "<b title='" + tooltipBuff + "'>--</b>";
                 }
@@ -127,7 +127,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             else
             {
                 // crossing lines without connection
-                if ( renderJavadocTitleAttribute )
+                if ( renderJavadocTooltips )
                 {
                     //buff.append( "<b title='" + clazz/*.getName()*/ + "'>|</b>" );
                     final String classStr =
@@ -203,7 +203,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
         //        this.lineSeparatorStr +
         //        "|  ";
 
-        if ( renderJavadocTitleAttribute )
+        if ( renderJavadocTooltips )
         {
             final String classStr =
                     //.getName()
@@ -366,7 +366,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             }
             else
             {
-                if ( renderJavadocTitleAttribute )
+                if ( renderJavadocTooltips )
                 {
                     final String classStr =
                             //.getName()
