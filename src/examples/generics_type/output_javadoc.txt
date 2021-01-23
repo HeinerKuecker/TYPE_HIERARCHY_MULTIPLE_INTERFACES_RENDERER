@@ -1,0 +1,31 @@
+ * <pre>
+ * {@link java.io.Serializable}
+ * |
+ * |  {@link java.lang.constant.Constable}
+ * |  |
+ * |  |  {@link java.lang.invoke.TypeDescriptor}
+ * |  |  |
+ * |  |  |  {@link java.lang.reflect.AnnotatedElement}
+ * |  |  |  |
+ * |  |  |  |  {@link java.lang.reflect.Type}
+ * |  |  |  |  |
+ * |  |  |  |  |  {@link javax.lang.model.AnnotatedConstruct}
+ * |  |  |  |  |  |
+ * |  |  +--|--|--|--{@link java.lang.invoke.TypeDescriptor.OfField}
+ * |  |     |  |  |  |
+ * |  |     +--|--|--|--{@link java.lang.reflect.GenericDeclaration}
+ * |  |     |  |  |  |  |
+ * +--+-----+--+--|--+--+--{@link java.lang.Class}
+ *             |  |
+ *             +--|--{@link java.lang.reflect.GenericArrayType}
+ *             |  |
+ *             +--|--{@link java.lang.reflect.ParameterizedType}
+ *             |  |
+ *             +--|--{@link java.lang.reflect.WildcardType}
+ *                |
+ *                +--{@link javax.lang.model.type.TypeMirror}
+ *                   |
+ *                   +--{@link javax.lang.model.type.ReferenceType}
+ *                      |
+ *                      +--{@link javax.lang.model.type.TypeVariable}
+ * </pre>

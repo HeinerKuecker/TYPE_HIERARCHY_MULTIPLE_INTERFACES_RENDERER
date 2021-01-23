@@ -1,0 +1,29 @@
+interface java.io.Serializable
+|
+|  interface java.lang.constant.Constable
+|  |
+|  |  interface java.lang.invoke.TypeDescriptor
+|  |  |
+|  |  |  interface java.lang.reflect.AnnotatedElement
+|  |  |  |
+|  |  |  |  interface java.lang.reflect.Type
+|  |  |  |  |
+|  |  |  |  |  interface javax.lang.model.AnnotatedConstruct
+|  |  |  |  |  |
+|  |  +--|--|--|--interface java.lang.invoke.TypeDescriptor.OfField
+|  |     |  |  |  |
+|  |     +--|--|--|--interface java.lang.reflect.GenericDeclaration
+|  |     |  |  |  |  |
++--+-----+--+--|--+--+--final class java.lang.Class
+            |  |
+            +--|--interface java.lang.reflect.GenericArrayType
+            |  |
+            +--|--interface java.lang.reflect.ParameterizedType
+            |  |
+            +--|--interface java.lang.reflect.WildcardType
+               |
+               +--interface javax.lang.model.type.TypeMirror
+                  |
+                  +--interface javax.lang.model.type.ReferenceType
+                     |
+                     +--interface javax.lang.model.type.TypeVariable
