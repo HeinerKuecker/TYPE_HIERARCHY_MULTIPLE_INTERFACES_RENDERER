@@ -271,7 +271,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
     }
 
     private void putSuperClassAndInterfacesRecursiveInExtenderAndImplementerMap(
-            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap ,
+            final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMapToPutIn ,
             final Class<?> clazz )
     {
         if ( ! clazz.isInterface() )
@@ -282,12 +282,12 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     ( ! excludes.contains( superClass ) ) )
             {
                 putInExtenderAndImplementerMap(
-                        extenderAndImplementerMap ,
+                        extenderAndImplementerMapToPutIn ,
                         superClass ,
                         clazz );
 
                 putSuperClassAndInterfacesRecursiveInExtenderAndImplementerMap(
-                        extenderAndImplementerMap ,
+                        extenderAndImplementerMapToPutIn ,
                         superClass );
             }
         }
@@ -299,12 +299,12 @@ public class TypeHierarchyMultipleInterfacesRenderer
             if ( ! excludes.contains( interfaze ) )
             {
                 putInExtenderAndImplementerMap(
-                        extenderAndImplementerMap ,
+                        extenderAndImplementerMapToPutIn ,
                         interfaze ,
                         clazz );
 
                 putSuperClassAndInterfacesRecursiveInExtenderAndImplementerMap(
-                        extenderAndImplementerMap ,
+                        extenderAndImplementerMapToPutIn ,
                         interfaze );
             }
         }
