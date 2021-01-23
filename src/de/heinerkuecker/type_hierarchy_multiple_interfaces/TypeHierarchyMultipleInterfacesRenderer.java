@@ -532,8 +532,6 @@ public class TypeHierarchyMultipleInterfacesRenderer
         //{
         //    abstractPrefix = "";
         //}
-
-        // TODO InnerOrNestedClassName
         //return abstractPrefix + clazz;
 
         return
