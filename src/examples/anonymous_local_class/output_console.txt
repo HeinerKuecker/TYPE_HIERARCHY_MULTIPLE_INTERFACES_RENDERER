@@ -1,0 +1,21 @@
+class java.lang.Object
+|
+|  interface java.io.Serializable
+|  |
+|  |  interface java.lang.Cloneable
+|  |  |
+|  |  |  interface java.lang.Iterable
+|  |  |  |
+|  |  |  |  interface java.util.RandomAccess
+|  |  |  |  |
+|  |  |  +--|--interface java.util.Collection
+|  |  |     |  |
++--|--|-----|--+--abstract class java.util.AbstractCollection
+   |  |     |  |  |
+   |  |     |  +--|--interface java.util.List
+   |  |     |     |  |
+   |  |     |     +--+--abstract class java.util.AbstractList
+   |  |     |        |  |
+   +--+-----+--------+--+--class java.util.ArrayList
+                           |
+                           +--anonym class examples.anonymous_local_class.AnonymousClassExample.1

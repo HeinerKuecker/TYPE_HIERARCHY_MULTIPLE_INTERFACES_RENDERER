@@ -1,0 +1,19 @@
+class java.lang.Object
+|
+|  interface java.io.Serializable
+|  |
+|  |  interface java.lang.Cloneable
+|  |  |
+|  |  |  interface java.lang.Iterable
+|  |  |  |
+|  |  |  +--interface java.util.Collection
+|  |  |     |
++--|--|-----+--abstract class java.util.AbstractCollection
+   |  |     |  |
+   |  |     +--|--interface java.util.Set
+   |  |        |  |
+   |  |        +--+--abstract class java.util.AbstractSet
+   |  |           |  |
+   +--+-----------+--+--class java.util.HashSet
+                        |
+                        +--local class examples.local_class.LocalClassExample.1LocalClass

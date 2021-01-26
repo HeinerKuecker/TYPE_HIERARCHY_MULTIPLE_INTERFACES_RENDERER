@@ -41,6 +41,11 @@ public class TypeHierarchyMultipleInterfacesRenderer
     public boolean withEnum;
 
     /**
+     * Output anonymous class as 'anonym class' and output local class as 'local class'.
+     */
+    public boolean withAnonymOrLocal;
+
+    /**
      * Classes, interfaces, enumerations to show.
      */
     public Class<?>[] classes;
@@ -112,6 +117,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 new TypeHierarchyMultipleInterfacesRendererIndent(
                         withAbstractOrFinal ,
                         withEnum ,
+                        withAnonymOrLocal ,
                         //renderJavadocTooltips
                         ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
                         //parent
@@ -165,7 +171,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         classToStr(
                                 hierarchy.clazz ,
                                 this.withAbstractOrFinal ,
-                                this.withEnum );
+                                this.withEnum ,
+                                this.withAnonymOrLocal );
 
                 buff.append( classStr );
             }
@@ -455,7 +462,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                 classToStr(
                                         subHierarchy.clazz ,
                                         this.withAbstractOrFinal ,
-                                        this.withEnum );
+                                        this.withEnum ,
+                                        this.withAnonymOrLocal );
 
                         buff.append( classStr );
                     }
@@ -517,7 +525,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
     static String classToStr(
             final Class<?> clazz ,
             final boolean withAbstractOrFinal ,
-            final boolean withEnum )
+            final boolean withEnum ,
+            final boolean withAnonymOrLocal )
     {
         //final String abstractPrefix;
         //if ( ( ! clazz.isInterface() ) && Modifier.isAbstract( clazz.getModifiers() ) )
@@ -538,7 +547,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 TypePrefix.getTypePrefix(
                         clazz ,
                         withAbstractOrFinal ,
-                        withEnum ) +
+                        withEnum ,
+                        withAnonymOrLocal ) +
                 InnerOrNestedClassName.innerOrNestedClassName(
                         clazz );
     }

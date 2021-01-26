@@ -7,7 +7,8 @@ public class TypePrefix
     public static String getTypePrefix(
             final Class<?> clazz ,
             final boolean withAbstractOrFinal ,
-            final boolean withEnum )
+            final boolean withEnum ,
+            final boolean withAnonymOrLocal )
     {
         if ( clazz.isAnnotation() )
         {
@@ -34,6 +35,18 @@ public class TypePrefix
         final int initialBuffLen = 15;
         final StringBuilder buff = new StringBuilder( initialBuffLen );
 
+        if ( withAnonymOrLocal )
+        {
+            if ( clazz.isAnonymousClass() )
+            {
+                buff.append( "anonym " );
+            }
+            else if ( clazz.isLocalClass() )
+            {
+                buff.append( "local " );
+            }
+        }
+
         if ( withAbstractOrFinal )
         {
             final int modifiers = clazz.getModifiers();
@@ -58,8 +71,10 @@ public class TypePrefix
     {
         if ( ( ! clazz.isInterface() ) &&
                 ( ! clazz.isAnnotation() ) &&
-                ( ! clazz.isPrimitive() ) )
+                ( ! clazz.isPrimitive() ) &&
+                ( ! clazz.isArray() ) )
         {
+            // TODO test with java.lang.Object
             final Class<?> superclass = clazz.getSuperclass();
             if ( superclass != null &&
                     superclass.equals( Enum.class ) )

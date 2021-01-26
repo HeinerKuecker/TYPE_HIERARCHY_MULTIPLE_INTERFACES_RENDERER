@@ -14,14 +14,13 @@ public class InnerOrNestedClassName
      *
      * Method for displaying the names of inner and nested classes in Java dot notation.
      *
-     * @param clazz clazz to display as string
+     * @param clazz class to display name as string
      * @return string in Java dot notation
      */
     public static String innerOrNestedClassName(
             final Class<?> clazz )
     {
-        if ( clazz.isAnonymousClass() ||
-                clazz.isSynthetic() )
+        if ( clazz.isSynthetic() )
         {
             throw new IllegalArgumentException( String.valueOf( clazz ) );
         }
@@ -72,7 +71,24 @@ public class InnerOrNestedClassName
 
         innerOrNestedClassNameBuff.append( enclosingClassNamesBuff.toString() );
 
-        innerOrNestedClassNameBuff.append( clazz.getSimpleName() );
+        if ( clazz.isAnonymousClass() ||
+                clazz.isLocalClass() )
+        {
+            final String anonymousOrLocalClassRawName = clazz.getName();
+
+            //System.out.println( anonymousOrLocalClassRawName );
+
+            final String anonymousOrLocalClassSimpleName =
+                    anonymousOrLocalClassRawName.substring(
+                    //beginIndex
+                    anonymousOrLocalClassRawName.lastIndexOf( '$' ) + 1 );
+
+            innerOrNestedClassNameBuff.append( anonymousOrLocalClassSimpleName );
+        }
+        else
+        {
+            innerOrNestedClassNameBuff.append( clazz.getSimpleName() );
+        }
 
         return innerOrNestedClassNameBuff.toString();
     }
