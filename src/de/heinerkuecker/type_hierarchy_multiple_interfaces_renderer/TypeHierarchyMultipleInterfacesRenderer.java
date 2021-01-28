@@ -47,7 +47,9 @@ public class TypeHierarchyMultipleInterfacesRenderer
     public boolean withAnonymOrLocal;
 
     /**
-     * Output type parameters of classes and interfaces
+     * Output type parameters of classes and interfaces.
+     *
+     * Only for console output, not for javadoc output.
      */
     public boolean withGenerics;
 
