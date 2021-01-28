@@ -23,7 +23,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
     final boolean withGenerics;
 
-    final boolean withSuperClassAndSuperInterfaces;
+    //final boolean withSuperClassAndSuperInterfaces;
 
     //final TypeHierarchyMultipleInterfacesRendererIndent parent;
 
@@ -44,7 +44,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             final boolean withEnum ,
             final boolean withAnonymOrLocal ,
             final boolean withGenerics ,
-            final boolean withSuperClassAndSuperInterfaces ,
+            //final boolean withSuperClassAndSuperInterfaces ,
             final boolean renderJavadocTooltips ,
             //final TypeHierarchyMultipleInterfacesRendererIndent parent ,
             final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap ,
@@ -55,7 +55,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
         this.withEnum = withEnum;
         this.withAnonymOrLocal = withAnonymOrLocal;
         this.withGenerics = withGenerics;
-        this.withSuperClassAndSuperInterfaces = withSuperClassAndSuperInterfaces;
+        //this.withSuperClassAndSuperInterfaces = withSuperClassAndSuperInterfaces;
 
         this.renderJavadocTooltips = renderJavadocTooltips;
         //this.parent = parent;

@@ -136,7 +136,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         withEnum ,
                         withAnonymOrLocal ,
                         withGenerics ,
-                        withSuperClassAndSuperInterfaces ,
+                        //withSuperClassAndSuperInterfaces ,
                         //renderJavadocTooltips
                         ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
                         //parent
