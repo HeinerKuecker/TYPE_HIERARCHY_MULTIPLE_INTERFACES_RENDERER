@@ -21,6 +21,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
     final boolean withAnonymOrLocal;
 
+    final boolean withGenerics;
+
     //final TypeHierarchyMultipleInterfacesRendererIndent parent;
 
     // reference to global data structure
@@ -34,14 +36,12 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
     /**
      * Constructor.
-     *
-     * @param lineSeparatorStr
-     * @param classes
      */
     TypeHierarchyMultipleInterfacesRendererIndent(
             final boolean withAbstractOrFinal ,
             final boolean withEnum ,
             final boolean withAnonymOrLocal ,
+            final boolean withGenerics ,
             final boolean renderJavadocTooltips ,
             //final TypeHierarchyMultipleInterfacesRendererIndent parent ,
             final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap ,
@@ -51,6 +51,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
         this.withAbstractOrFinal = withAbstractOrFinal;
         this.withEnum = withEnum;
         this.withAnonymOrLocal = withAnonymOrLocal;
+        this.withGenerics = withGenerics;
 
         this.renderJavadocTooltips = renderJavadocTooltips;
         //this.parent = parent;
@@ -90,7 +91,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                                 clazz ,
                                 this.withAbstractOrFinal ,
                                 this.withEnum ,
-                                this.withAnonymOrLocal );
+                                this.withAnonymOrLocal ,
+                                this.withGenerics );
 
                 tooltipBuff.append( classStr );
             }
@@ -111,7 +113,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                                     clazz ,
                                     this.withAbstractOrFinal ,
                                     this.withEnum ,
-                                    this.withAnonymOrLocal );
+                                    this.withAnonymOrLocal ,
+                                    this.withGenerics );
 
                     buff.append( "<b title='" + classStr + "'>+</b>" );
                 }
@@ -142,7 +145,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                                     clazz ,
                                     this.withAbstractOrFinal ,
                                     this.withEnum ,
-                                    this.withAnonymOrLocal );
+                                    this.withAnonymOrLocal ,
+                                    this.withGenerics );
 
                     buff.append( "<b title='" + classStr + "'>|</b>" );
                 }
@@ -218,7 +222,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                             classToAdd ,
                             this.withAbstractOrFinal ,
                             this.withEnum ,
-                            this.withAnonymOrLocal );
+                            this.withAnonymOrLocal ,
+                            this.withGenerics );
 
             this.lineSeparatorStr =
                     this.lineSeparatorStr +
@@ -382,7 +387,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                                     this.classes[ i ] ,
                                     this.withAbstractOrFinal ,
                                     this.withEnum ,
-                                    this.withAnonymOrLocal );
+                                    this.withAnonymOrLocal ,
+                                    this.withGenerics );
 
                     buff.append( "<b title='" + classStr + "'>|</b>" );
                 }

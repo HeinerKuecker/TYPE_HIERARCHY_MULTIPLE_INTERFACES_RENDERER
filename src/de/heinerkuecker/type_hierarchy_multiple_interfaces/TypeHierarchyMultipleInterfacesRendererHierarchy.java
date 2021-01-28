@@ -111,11 +111,13 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
                         this.clazz ,
                         false ,
                         false ,
+                        false ,
                         false );
 
         final String otherClassStr =
                 classToStr(
                         o.clazz ,
+                        false ,
                         false ,
                         false ,
                         false );

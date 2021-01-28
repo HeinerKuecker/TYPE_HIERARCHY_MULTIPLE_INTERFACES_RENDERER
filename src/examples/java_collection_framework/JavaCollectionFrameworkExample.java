@@ -75,8 +75,9 @@ public class JavaCollectionFrameworkExample
         // Try different options
         hierarchyRenderer.withAbstractOrFinal = true;
         hierarchyRenderer.withEnum = true;
+        hierarchyRenderer.withGenerics = true;
         //hierarchyRenderer.excludes.add( Object.class );
-        hierarchyRenderer.javadocMode = true;
+        //hierarchyRenderer.javadocMode = true;
         //hierarchyRenderer.renderJavadocTooltips = true;
 
         System.out.println( hierarchyRenderer.render() );

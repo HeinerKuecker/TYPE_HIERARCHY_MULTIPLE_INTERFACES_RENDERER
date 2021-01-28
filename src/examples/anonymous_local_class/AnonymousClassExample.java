@@ -1,7 +1,6 @@
 package examples.anonymous_local_class;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer;
 
@@ -38,6 +37,7 @@ public class AnonymousClassExample
         hierarchyRenderer.withAbstractOrFinal = true;
         hierarchyRenderer.withEnum = true;
         hierarchyRenderer.withAnonymOrLocal = true;
+        hierarchyRenderer.withGenerics = true;
         //hierarchyRenderer.excludes.add( Object.class );
 
         System.out.println( hierarchyRenderer.render() );

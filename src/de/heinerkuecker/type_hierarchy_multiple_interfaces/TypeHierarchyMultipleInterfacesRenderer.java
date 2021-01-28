@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import de.heinerkuecker.class_with_generics_to_str.ClassDeclarationToStrWithGenerics;
 import de.heinerkuecker.inner_or_nested_class_names_in_dot_notation.InnerOrNestedClassName;
 import de.heinerkuecker.type_prefix.TypePrefix;
 
@@ -44,6 +45,11 @@ public class TypeHierarchyMultipleInterfacesRenderer
      * Output anonymous class as 'anonym class' and output local class as 'local class'.
      */
     public boolean withAnonymOrLocal;
+
+    /**
+     * Output type parameters of classes and interfaces
+     */
+    public boolean withGenerics;
 
     /**
      * Classes, interfaces, enumerations to show.
@@ -118,6 +124,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         withAbstractOrFinal ,
                         withEnum ,
                         withAnonymOrLocal ,
+                        withGenerics ,
                         //renderJavadocTooltips
                         ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
                         //parent
@@ -172,7 +179,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                 hierarchy.clazz ,
                                 this.withAbstractOrFinal ,
                                 this.withEnum ,
-                                this.withAnonymOrLocal );
+                                this.withAnonymOrLocal ,
+                                this.withGenerics );
 
                 buff.append( classStr );
             }
@@ -463,7 +471,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                         subHierarchy.clazz ,
                                         this.withAbstractOrFinal ,
                                         this.withEnum ,
-                                        this.withAnonymOrLocal );
+                                        this.withAnonymOrLocal ,
+                                        this.withGenerics );
 
                         buff.append( classStr );
                     }
@@ -526,7 +535,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
             final Class<?> clazz ,
             final boolean withAbstractOrFinal ,
             final boolean withEnum ,
-            final boolean withAnonymOrLocal )
+            final boolean withAnonymOrLocal ,
+            final boolean withGenerics )
     {
         //final String abstractPrefix;
         //if ( ( ! clazz.isInterface() ) && Modifier.isAbstract( clazz.getModifiers() ) )
@@ -543,14 +553,31 @@ public class TypeHierarchyMultipleInterfacesRenderer
         //}
         //return abstractPrefix + clazz;
 
-        return
+        final String typePrefix =
                 TypePrefix.getTypePrefix(
                         clazz ,
                         withAbstractOrFinal ,
                         withEnum ,
-                        withAnonymOrLocal ) +
-                InnerOrNestedClassName.innerOrNestedClassName(
-                        clazz );
+                        withAnonymOrLocal );
+
+        final String classNameAndTypeparams;
+
+        if ( withGenerics )
+        {
+            classNameAndTypeparams =
+                    ClassDeclarationToStrWithGenerics.typeWithTypeParametersToString(
+                            clazz );
+        }
+        else
+        {
+            classNameAndTypeparams =
+                    InnerOrNestedClassName.innerOrNestedClassName(
+                            clazz );
+        }
+
+        return
+                typePrefix +
+                classNameAndTypeparams;
     }
 
     /**

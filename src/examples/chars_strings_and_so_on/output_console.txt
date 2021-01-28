@@ -10,7 +10,7 @@ class java.lang.Object
 |  |  |  |  |
 |  |  |  |  |  interface java.lang.CharSequence
 |  |  |  |  |  |
-|  |  |  |  |  |  interface java.lang.Comparable
+|  |  |  |  |  |  interface java.lang.Comparable<T>
 |  |  |  |  |  |  |
 |  |  |  |  |  |  |  interface java.lang.Readable
 |  |  |  |  |  |  |  |

@@ -4,18 +4,18 @@ class java.lang.Object
 |  |
 |  |  interface java.lang.Cloneable
 |  |  |
-|  |  |  interface java.lang.Iterable
+|  |  |  interface java.lang.Iterable<T>
 |  |  |  |
 |  |  |  |  interface java.util.RandomAccess
 |  |  |  |  |
-|  |  |  +--|--interface java.util.Collection
+|  |  |  +--|--interface java.util.Collection<E>
 |  |  |     |  |
-+--|--|-----|--+--abstract class java.util.AbstractCollection
++--|--|-----|--+--abstract class java.util.AbstractCollection<E>
    |  |     |  |  |
-   |  |     |  +--|--interface java.util.List
+   |  |     |  +--|--interface java.util.List<E>
    |  |     |     |  |
-   |  |     |     +--+--abstract class java.util.AbstractList
+   |  |     |     +--+--abstract class java.util.AbstractList<E>
    |  |     |        |  |
-   +--+-----+--------+--+--class java.util.ArrayList
+   +--+-----+--------+--+--class java.util.ArrayList<E>
                            |
                            +--anonym class examples.anonymous_local_class.AnonymousClassExample.1
