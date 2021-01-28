@@ -2,7 +2,7 @@ package examples.inner_class;
 
 import java.util.ArrayList;
 
-import de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer;
+import de.heinerkuecker.type_hierarchy_multiple_interfaces_renderer.TypeHierarchyMultipleInterfacesRenderer;
 
 /**
  * Example for using {@link TypeHierarchyMultipleInterfacesRenderer}.

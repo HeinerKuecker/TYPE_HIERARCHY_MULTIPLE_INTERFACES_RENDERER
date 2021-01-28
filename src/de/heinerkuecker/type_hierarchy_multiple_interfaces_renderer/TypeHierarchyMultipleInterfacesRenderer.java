@@ -1,4 +1,4 @@
-package de.heinerkuecker.type_hierarchy_multiple_interfaces;
+package de.heinerkuecker.type_hierarchy_multiple_interfaces_renderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

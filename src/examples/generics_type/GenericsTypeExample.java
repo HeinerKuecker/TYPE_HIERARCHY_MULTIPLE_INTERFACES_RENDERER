@@ -6,7 +6,7 @@ import java.lang.reflect.WildcardType;
 
 import javax.lang.model.type.TypeVariable;
 
-import de.heinerkuecker.type_hierarchy_multiple_interfaces.TypeHierarchyMultipleInterfacesRenderer;
+import de.heinerkuecker.type_hierarchy_multiple_interfaces_renderer.TypeHierarchyMultipleInterfacesRenderer;
 
 /**
  * Example for using {@link TypeHierarchyMultipleInterfacesRenderer}.
