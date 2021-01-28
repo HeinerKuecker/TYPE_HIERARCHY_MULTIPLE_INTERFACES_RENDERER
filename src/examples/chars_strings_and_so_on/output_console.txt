@@ -20,32 +20,32 @@ class java.lang.Object
 |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  interface javax.sql.RowSetWriter
 |  |  |  |  |  |  |  |  |  |  |
-+--|--+--|--|--+--+--|--+--+--|--final class java.lang.String
++--|--+--|--|--+--+--|--+--+--|--final class java.lang.String implements java.io.Serializable, java.lang.Comparable<java.lang.String>, java.lang.CharSequence, java.lang.constant.Constable, java.lang.constant.ConstantDesc
 |  |  |  |  |  |  |  |        |
-+--|--|--+--|--+--|--|--------|--abstract class java.lang.AbstractStringBuilder
++--|--|--+--|--+--|--|--------|--abstract class java.lang.AbstractStringBuilder implements java.lang.Appendable, java.lang.CharSequence
 |  |  |  |  |  |  |  |        |  |
-|  |  +--|--|--+--+--|--------|--+--final class java.lang.StringBuffer
+|  |  +--|--|--+--+--|--------|--+--final class java.lang.StringBuffer extends java.lang.AbstractStringBuilder implements java.io.Serializable, java.lang.Comparable<java.lang.StringBuffer>, java.lang.CharSequence
 |  |  |  |  |  |  |  |        |  |
-|  |  +--|--|--+--+--|--------|--+--final class java.lang.StringBuilder
+|  |  +--|--|--+--+--|--------|--+--final class java.lang.StringBuilder extends java.lang.AbstractStringBuilder implements java.io.Serializable, java.lang.Comparable<java.lang.StringBuilder>, java.lang.CharSequence
 |  |     |  |        |        |
-|  |     |  +--------|--------|--interface java.io.Closeable
+|  |     |  +--------|--------|--interface java.io.Closeable extends java.lang.AutoCloseable
 |  |     |           |        |  |
-+--+-----+-----------|--------|--+--abstract class java.io.Writer
++--+-----+-----------|--------|--+--abstract class java.io.Writer implements java.lang.Appendable, java.io.Closeable, java.io.Flushable
 |  |     |           |        |  |  |
-|  |     |           |        |  |  +--class java.io.OutputStreamWriter
+|  |     |           |        |  |  +--class java.io.OutputStreamWriter extends java.io.Writer
 |  |     |           |        |  |     |
-|  |     |           |        |  |     +--class java.io.FileWriter
+|  |     |           |        |  |     +--class java.io.FileWriter extends java.io.OutputStreamWriter
 |  |     |           |        |  |
-+--+-----|-----------|--------|--+--abstract class java.io.OutputStream
++--+-----|-----------|--------|--+--abstract class java.io.OutputStream implements java.io.Closeable, java.io.Flushable
 |        |           |        |  |  |
-|        |           |        |  |  +--class java.io.ByteArrayOutputStream
+|        |           |        |  |  +--class java.io.ByteArrayOutputStream extends java.io.OutputStream
 |        |           |        |  |  |
-|        |           |        |  |  +--class java.io.FilterOutputStream
+|        |           |        |  |  +--class java.io.FilterOutputStream extends java.io.OutputStream
 |        |           |        |  |     |
-|        +-----------|--------|--+-----+--class java.io.PrintStream
+|        +-----------|--------|--+-----+--class java.io.PrintStream extends java.io.FilterOutputStream implements java.lang.Appendable, java.io.Closeable
 |                    |        |  |
-+--------------------+--------|--+--abstract class java.io.Reader
++--------------------+--------|--+--abstract class java.io.Reader implements java.lang.Readable, java.io.Closeable
                               |     |
-                              |     +--class java.io.BufferedReader
+                              |     +--class java.io.BufferedReader extends java.io.Reader
                               |
-                              +--interface javax.sql.rowset.spi.XmlWriter
+                              +--interface javax.sql.rowset.spi.XmlWriter extends javax.sql.RowSetWriter

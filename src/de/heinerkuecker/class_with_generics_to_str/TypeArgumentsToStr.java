@@ -113,7 +113,25 @@ public class TypeArgumentsToStr
         }
         else if ( actualTypeArgument instanceof WildcardType )
         {
-            throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+            final WildcardType wildcardActualTypeArgument = (WildcardType) actualTypeArgument;
+
+            final Type[] lowerBounds = wildcardActualTypeArgument.getLowerBounds();
+
+            final Type[] upperBounds = wildcardActualTypeArgument.getUpperBounds();
+
+            if ( ! arrayIsEmpty( lowerBounds ) )
+            {
+                throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+            }
+
+            if ( upperBounds.length != 1 ||
+                    ( ! upperBounds[ 0 ].equals( Object.class ) ) )
+            {
+                throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+            }
+
+            //throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+            actualTypeArgumentStr += "?";
         }
         else
         {
@@ -123,12 +141,12 @@ public class TypeArgumentsToStr
         return actualTypeArgumentStr;
     }
 
-	static boolean arrayIsEmpty(
-	        final Object[] array )
-	{
-	    return
-	            array == null ||
-	            array.length == 0;
-	}
+    static boolean arrayIsEmpty(
+            final Object[] array )
+    {
+        return
+                array == null ||
+                array.length == 0;
+    }
 
 }

@@ -10,20 +10,20 @@ interface java.io.Serializable
 |  |  |  |  |
 |  |  |  |  |  interface javax.lang.model.AnnotatedConstruct
 |  |  |  |  |  |
-|  |  +--|--|--|--interface java.lang.invoke.TypeDescriptor.OfField<F extends java.lang.invoke.TypeDescriptor.OfField<F>>
+|  |  +--|--|--|--interface java.lang.invoke.TypeDescriptor.OfField<F extends java.lang.invoke.TypeDescriptor.OfField<F>> extends java.lang.invoke.TypeDescriptor
 |  |     |  |  |  |
-|  |     +--|--|--|--interface java.lang.reflect.GenericDeclaration
+|  |     +--|--|--|--interface java.lang.reflect.GenericDeclaration extends java.lang.reflect.AnnotatedElement
 |  |     |  |  |  |  |
-+--+-----+--+--|--+--+--final class java.lang.Class<T>
++--+-----+--+--|--+--+--final class java.lang.Class<T> implements java.io.Serializable, java.lang.reflect.GenericDeclaration, java.lang.reflect.Type, java.lang.reflect.AnnotatedElement, java.lang.invoke.TypeDescriptor.OfField<class java.lang.Class<?>>, java.lang.constant.Constable
             |  |
-            +--|--interface java.lang.reflect.GenericArrayType
+            +--|--interface java.lang.reflect.GenericArrayType extends java.lang.reflect.Type
             |  |
-            +--|--interface java.lang.reflect.ParameterizedType
+            +--|--interface java.lang.reflect.ParameterizedType extends java.lang.reflect.Type
             |  |
-            +--|--interface java.lang.reflect.WildcardType
+            +--|--interface java.lang.reflect.WildcardType extends java.lang.reflect.Type
                |
-               +--interface javax.lang.model.type.TypeMirror
+               +--interface javax.lang.model.type.TypeMirror extends javax.lang.model.AnnotatedConstruct
                   |
-                  +--interface javax.lang.model.type.ReferenceType
+                  +--interface javax.lang.model.type.ReferenceType extends javax.lang.model.type.TypeMirror
                      |
-                     +--interface javax.lang.model.type.TypeVariable
+                     +--interface javax.lang.model.type.TypeVariable extends javax.lang.model.type.ReferenceType

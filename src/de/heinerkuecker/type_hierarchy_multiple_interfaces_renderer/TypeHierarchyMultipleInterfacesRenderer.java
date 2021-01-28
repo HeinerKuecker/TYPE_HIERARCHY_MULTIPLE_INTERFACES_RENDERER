@@ -54,6 +54,15 @@ public class TypeHierarchyMultipleInterfacesRenderer
     public boolean withGenerics;
 
     /**
+     * Output super class and super interfaces
+     *
+     * Output always with generics.
+     *
+     * Only for console output, not for javadoc output.
+     */
+    public boolean withSuperClassAndSuperInterfaces;
+
+    /**
      * Classes, interfaces, enumerations to show.
      */
     public Class<?>[] classes;
@@ -127,6 +136,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         withEnum ,
                         withAnonymOrLocal ,
                         withGenerics ,
+                        withSuperClassAndSuperInterfaces ,
                         //renderJavadocTooltips
                         ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
                         //parent
@@ -182,7 +192,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                 this.withAbstractOrFinal ,
                                 this.withEnum ,
                                 this.withAnonymOrLocal ,
-                                this.withGenerics );
+                                this.withGenerics ,
+                                this.withSuperClassAndSuperInterfaces );
 
                 buff.append( classStr );
             }
@@ -474,7 +485,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                         this.withAbstractOrFinal ,
                                         this.withEnum ,
                                         this.withAnonymOrLocal ,
-                                        this.withGenerics );
+                                        this.withGenerics ,
+                                        this.withSuperClassAndSuperInterfaces );
 
                         buff.append( classStr );
                     }
@@ -538,7 +550,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
             final boolean withAbstractOrFinal ,
             final boolean withEnum ,
             final boolean withAnonymOrLocal ,
-            final boolean withGenerics )
+            final boolean withGenerics ,
+            final boolean withSuperClassAndSuperInterfaces )
     {
         //final String abstractPrefix;
         //if ( ( ! clazz.isInterface() ) && Modifier.isAbstract( clazz.getModifiers() ) )
@@ -564,7 +577,13 @@ public class TypeHierarchyMultipleInterfacesRenderer
 
         final String classNameAndTypeparams;
 
-        if ( withGenerics )
+        if ( withSuperClassAndSuperInterfaces )
+        {
+            classNameAndTypeparams =
+                    ClassDeclarationToStrWithGenerics.typeToStrTuple(
+                            clazz ).getOneLineStr();
+        }
+        else if ( withGenerics )
         {
             classNameAndTypeparams =
                     ClassDeclarationToStrWithGenerics.typeWithTypeParametersToString(

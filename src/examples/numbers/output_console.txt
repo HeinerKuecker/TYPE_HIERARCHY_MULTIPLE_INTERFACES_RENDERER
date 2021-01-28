@@ -2,46 +2,46 @@ class java.lang.Object
 |
 |  interface java.io.Serializable
 |  |
-|  |  interface java.lang.Comparable
+|  |  interface java.lang.Comparable<T>
 |  |  |
 |  |  |  interface java.lang.constant.Constable
 |  |  |  |
 |  |  |  |  interface java.lang.constant.ConstantDesc
 |  |  |  |  |
-+--+--+--+--|--abstract class java.lang.Enum
++--+--+--+--|--abstract class java.lang.Enum<E extends java.lang.Enum<E>> implements java.lang.constant.Constable, java.lang.Comparable<E>, java.io.Serializable
 |  |  |  |  |  |
-|  |  |  |  |  +--enum java.nio.file.AccessMode
+|  |  |  |  |  +--enum java.nio.file.AccessMode extends java.lang.Enum<java.nio.file.AccessMode>
 |  |  |  |  |
-+--+--+--|--|--final class java.lang.Character
++--+--+--|--|--final class java.lang.Character implements java.io.Serializable, java.lang.Comparable<java.lang.Character>
 |  |  |  |  |
-+--+--|--|--|--abstract class java.lang.Number
++--+--|--|--|--abstract class java.lang.Number implements java.io.Serializable
    |  |  |  |  |
-   |  +--+--+--+--final class java.lang.Double
+   |  +--+--+--+--final class java.lang.Double extends java.lang.Number implements java.lang.Comparable<java.lang.Double>, java.lang.constant.Constable, java.lang.constant.ConstantDesc
    |  |  |  |  |
-   |  +--+--+--+--final class java.lang.Float
+   |  +--+--+--+--final class java.lang.Float extends java.lang.Number implements java.lang.Comparable<java.lang.Float>, java.lang.constant.Constable, java.lang.constant.ConstantDesc
    |  |  |  |  |
-   |  +--+--+--+--final class java.lang.Integer
+   |  +--+--+--+--final class java.lang.Integer extends java.lang.Number implements java.lang.Comparable<java.lang.Integer>, java.lang.constant.Constable, java.lang.constant.ConstantDesc
    |  |  |  |  |
-   |  +--+--+--+--final class java.lang.Long
+   |  +--+--+--+--final class java.lang.Long extends java.lang.Number implements java.lang.Comparable<java.lang.Long>, java.lang.constant.Constable, java.lang.constant.ConstantDesc
    |  |        |
-   |  +--------+--final class java.lang.Byte
+   |  +--------+--final class java.lang.Byte extends java.lang.Number implements java.lang.Comparable<java.lang.Byte>
    |  |        |
-   |  +--------+--final class java.lang.Short
+   |  +--------+--final class java.lang.Short extends java.lang.Number implements java.lang.Comparable<java.lang.Short>
    |  |        |
-   |  +--------+--class java.math.BigDecimal
+   |  +--------+--class java.math.BigDecimal extends java.lang.Number implements java.lang.Comparable<java.math.BigDecimal>
    |  |        |
-   |  +--------+--class java.math.BigInteger
+   |  +--------+--class java.math.BigInteger extends java.lang.Number implements java.lang.Comparable<java.math.BigInteger>
    |           |
-   +-----------+--class java.util.concurrent.atomic.AtomicInteger
+   +-----------+--class java.util.concurrent.atomic.AtomicInteger extends java.lang.Number implements java.io.Serializable
    |           |
-   +-----------+--class java.util.concurrent.atomic.AtomicLong
+   +-----------+--class java.util.concurrent.atomic.AtomicLong extends java.lang.Number implements java.io.Serializable
    |           |
-   |           +--abstract class java.util.concurrent.atomic.Striped64
+   |           +--abstract class java.util.concurrent.atomic.Striped64 extends java.lang.Number
    |              |
-   +--------------+--class java.util.concurrent.atomic.DoubleAccumulator
+   +--------------+--class java.util.concurrent.atomic.DoubleAccumulator extends java.util.concurrent.atomic.Striped64 implements java.io.Serializable
    |              |
-   +--------------+--class java.util.concurrent.atomic.DoubleAdder
+   +--------------+--class java.util.concurrent.atomic.DoubleAdder extends java.util.concurrent.atomic.Striped64 implements java.io.Serializable
    |              |
-   +--------------+--class java.util.concurrent.atomic.LongAccumulator
+   +--------------+--class java.util.concurrent.atomic.LongAccumulator extends java.util.concurrent.atomic.Striped64 implements java.io.Serializable
    |              |
-   +--------------+--class java.util.concurrent.atomic.LongAdder
+   +--------------+--class java.util.concurrent.atomic.LongAdder extends java.util.concurrent.atomic.Striped64 implements java.io.Serializable

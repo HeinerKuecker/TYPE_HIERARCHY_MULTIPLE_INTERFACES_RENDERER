@@ -4,16 +4,16 @@ class java.lang.Object
 |  |
 |  |  interface java.lang.Cloneable
 |  |  |
-|  |  |  interface java.lang.Iterable
+|  |  |  interface java.lang.Iterable<T>
 |  |  |  |
-|  |  |  +--interface java.util.Collection
+|  |  |  +--interface java.util.Collection<E> extends java.lang.Iterable<E>
 |  |  |     |
-+--|--|-----+--abstract class java.util.AbstractCollection
++--|--|-----+--abstract class java.util.AbstractCollection<E> implements java.util.Collection<E>
    |  |     |  |
-   |  |     +--|--interface java.util.Set
+   |  |     +--|--interface java.util.Set<E> extends java.util.Collection<E>
    |  |        |  |
-   |  |        +--+--abstract class java.util.AbstractSet
+   |  |        +--+--abstract class java.util.AbstractSet<E> extends java.util.AbstractCollection<E> implements java.util.Set<E>
    |  |           |  |
-   +--+-----------+--+--class java.util.HashSet
+   +--+-----------+--+--class java.util.HashSet<E> extends java.util.AbstractSet<E> implements java.util.Set<E>, java.lang.Cloneable, java.io.Serializable
                         |
-                        +--local class examples.local_class.LocalClassExample.1LocalClass
+                        +--local class examples.local_class.LocalClassExample.1LocalClass extends java.util.HashSet<java.lang.String>

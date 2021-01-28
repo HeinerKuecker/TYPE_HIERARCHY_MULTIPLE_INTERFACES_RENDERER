@@ -39,6 +39,7 @@ public class GenericsTypeExample
         hierarchyRenderer.withEnum = true;
         hierarchyRenderer.withGenerics = true;
         hierarchyRenderer.excludes.add( Object.class );
+        hierarchyRenderer.withSuperClassAndSuperInterfaces = true;
         //hierarchyRenderer.javadocMode = true;
         //hierarchyRenderer.renderJavadocTooltips = true;
 

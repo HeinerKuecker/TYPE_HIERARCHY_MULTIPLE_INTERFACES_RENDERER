@@ -38,6 +38,7 @@ public class AnonymousClassExample
         hierarchyRenderer.withEnum = true;
         hierarchyRenderer.withAnonymOrLocal = true;
         hierarchyRenderer.withGenerics = true;
+        hierarchyRenderer.withSuperClassAndSuperInterfaces = true;
         //hierarchyRenderer.excludes.add( Object.class );
 
         System.out.println( hierarchyRenderer.render() );

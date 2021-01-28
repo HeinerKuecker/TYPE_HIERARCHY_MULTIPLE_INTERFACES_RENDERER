@@ -8,14 +8,14 @@ class java.lang.Object
 |  |  |  |
 |  |  |  |  interface java.util.RandomAccess
 |  |  |  |  |
-|  |  |  +--|--interface java.util.Collection<E>
+|  |  |  +--|--interface java.util.Collection<E> extends java.lang.Iterable<E>
 |  |  |     |  |
-+--|--|-----|--+--abstract class java.util.AbstractCollection<E>
++--|--|-----|--+--abstract class java.util.AbstractCollection<E> implements java.util.Collection<E>
    |  |     |  |  |
-   |  |     |  +--|--interface java.util.List<E>
+   |  |     |  +--|--interface java.util.List<E> extends java.util.Collection<E>
    |  |     |     |  |
-   |  |     |     +--+--abstract class java.util.AbstractList<E>
+   |  |     |     +--+--abstract class java.util.AbstractList<E> extends java.util.AbstractCollection<E> implements java.util.List<E>
    |  |     |        |  |
-   +--+-----+--------+--+--class java.util.ArrayList<E>
+   +--+-----+--------+--+--class java.util.ArrayList<E> extends java.util.AbstractList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
                            |
-                           +--anonym class examples.anonymous_local_class.AnonymousClassExample.1
+                           +--anonym class examples.anonymous_local_class.AnonymousClassExample.1 extends java.util.ArrayList<java.lang.String>

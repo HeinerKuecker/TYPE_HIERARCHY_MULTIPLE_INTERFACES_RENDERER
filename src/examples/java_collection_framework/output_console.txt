@@ -10,86 +10,86 @@ class java.lang.Object
 |  |  |  |  |
 |  |  |  |  |  interface java.util.RandomAccess
 |  |  |  |  |  |
-+--|--|--|--+--|--abstract class java.util.AbstractMap<K, V>
++--|--|--|--+--|--abstract class java.util.AbstractMap<K, V> implements java.util.Map<K, V>
 |  |  |  |  |  |  |
-|  +--+--|--+--|--+--class java.util.HashMap<K, V>
+|  +--+--|--+--|--+--class java.util.HashMap<K, V> extends java.util.AbstractMap<K, V> implements java.util.Map<K, V>, java.lang.Cloneable, java.io.Serializable
 |  |  |  |  |  |  |  |
-|  |  |  |  +--|--|--+--class java.util.LinkedHashMap<K, V>
+|  |  |  |  +--|--|--+--class java.util.LinkedHashMap<K, V> extends java.util.HashMap<K, V> implements java.util.Map<K, V>
 |  |  |  |  |  |  |
-|  |  |  +--|--|--|--interface java.util.Collection<E>
+|  |  |  +--|--|--|--interface java.util.Collection<E> extends java.lang.Iterable<E>
 |  |  |     |  |  |  |
-+--|--|-----|--|--|--+--abstract class java.util.AbstractCollection<E>
++--|--|-----|--|--|--+--abstract class java.util.AbstractCollection<E> implements java.util.Collection<E>
 |  |  |     |  |  |  |  |
-|  |  |     |  |  |  +--|--interface java.util.List<E>
+|  |  |     |  |  |  +--|--interface java.util.List<E> extends java.util.Collection<E>
 |  |  |     |  |  |  |  |  |
-|  |  |     |  |  |  |  +--+--abstract class java.util.AbstractList<E>
+|  |  |     |  |  |  |  +--+--abstract class java.util.AbstractList<E> extends java.util.AbstractCollection<E> implements java.util.List<E>
 |  |  |     |  |  |  |  |  |  |
-|  +--+-----|--+--|--|--|--+--+--class java.util.ArrayList<E>
+|  +--+-----|--+--|--|--|--+--+--class java.util.ArrayList<E> extends java.util.AbstractList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
 |  |  |     |  |  |  |  |  |  |
-|  +--+-----|--+--|--|--|--+--+--class java.util.Vector<E>
+|  +--+-----|--+--|--|--|--+--+--class java.util.Vector<E> extends java.util.AbstractList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
 |  |  |     |  |  |  |  |  |  |  |
-|  |  |     |  |  |  |  |  |  |  +--class java.util.Stack<E>
+|  |  |     |  |  |  |  |  |  |  +--class java.util.Stack<E> extends java.util.Vector<E>
 |  |  |     |  |  |  |  |  |  |
-|  |  |     |  |  |  |  |  |  +--abstract class java.util.AbstractSequentialList<E>
+|  |  |     |  |  |  |  |  |  +--abstract class java.util.AbstractSequentialList<E> extends java.util.AbstractList<E>
 |  |  |     |  |  |  |  |  |     |
-+--+--+-----|--+--|--|--|--+-----|--class java.util.concurrent.CopyOnWriteArrayList<E>
++--+--+-----|--+--|--|--|--+-----|--class java.util.concurrent.CopyOnWriteArrayList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
    |  |     |     |  |  |  |     |
-   |  |     |     |  +--|--|-----|--interface java.util.Queue<E>
+   |  |     |     |  +--|--|-----|--interface java.util.Queue<E> extends java.util.Collection<E>
    |  |     |     |  |  |  |     |  |
-   |  |     |     |  |  +--|-----|--+--abstract class java.util.AbstractQueue<E>
+   |  |     |     |  |  +--|-----|--+--abstract class java.util.AbstractQueue<E> extends java.util.AbstractCollection<E> implements java.util.Queue<E>
    |  |     |     |  |  |  |     |  |  |
-   +--|-----|-----|--|--|--|-----|--+--+--class java.util.concurrent.ConcurrentLinkedQueue<E>
+   +--|-----|-----|--|--|--|-----|--+--+--class java.util.concurrent.ConcurrentLinkedQueue<E> extends java.util.AbstractQueue<E> implements java.util.Queue<E>, java.io.Serializable
    |  |     |     |  |  |  |     |  |  |
-   |  |     |     |  |  |  |     |  +--|--interface java.util.Deque<E>
+   |  |     |     |  |  |  |     |  +--|--interface java.util.Deque<E> extends java.util.Queue<E>
    |  |     |     |  |  |  |     |  |  |  |
-   +--+-----|-----|--|--|--+-----+--|--|--+--class java.util.LinkedList<E>
+   +--+-----|-----|--|--|--+-----+--|--|--+--class java.util.LinkedList<E> extends java.util.AbstractSequentialList<E> implements java.util.List<E>, java.util.Deque<E>, java.lang.Cloneable, java.io.Serializable
    |  |     |     |  |  |           |  |  |
-   +--+-----|-----|--|--+-----------|--|--+--class java.util.ArrayDeque<E>
+   +--+-----|-----|--|--+-----------|--|--+--class java.util.ArrayDeque<E> extends java.util.AbstractCollection<E> implements java.util.Deque<E>, java.lang.Cloneable, java.io.Serializable
    |  |     |     |  |  |           |  |  |
-   +--|-----|-----|--|--+-----------|--|--+--class java.util.concurrent.ConcurrentLinkedDeque<E>
+   +--|-----|-----|--|--+-----------|--|--+--class java.util.concurrent.ConcurrentLinkedDeque<E> extends java.util.AbstractCollection<E> implements java.util.Deque<E>, java.io.Serializable
    |  |     |     |  |  |           |  |  |
-   |  |     |     |  |  |           +--|--|--interface java.util.concurrent.BlockingQueue<E>
+   |  |     |     |  |  |           +--|--|--interface java.util.concurrent.BlockingQueue<E> extends java.util.Queue<E>
    |  |     |     |  |  |              |  |  |
-   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.ArrayBlockingQueue<E>
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.ArrayBlockingQueue<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingQueue<E>, java.io.Serializable
    |  |     |     |  |  |              |  |  |
-   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.LinkedBlockingQueue<E>
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.LinkedBlockingQueue<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingQueue<E>, java.io.Serializable
    |  |     |     |  |  |              |  |  |
-   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.PriorityBlockingQueue<E>
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.PriorityBlockingQueue<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingQueue<E>, java.io.Serializable
    |  |     |     |  |  |              |  |  |
-   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.SynchronousQueue<E>
+   +--|-----|-----|--|--|--------------+--|--+--class java.util.concurrent.SynchronousQueue<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingQueue<E>, java.io.Serializable
    |  |     |     |  |  |              |  |  |
-   |  |     |     |  |  |              +--|--+--class java.util.concurrent.DelayQueue<E extends java.util.concurrent.Delayed>
+   |  |     |     |  |  |              +--|--+--class java.util.concurrent.DelayQueue<E extends java.util.concurrent.Delayed> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingQueue<E>
    |  |     |     |  |  |              |  |  |
-   |  |     |     |  |  |              |  +--+--interface java.util.concurrent.BlockingDeque<E>
+   |  |     |     |  |  |              |  +--+--interface java.util.concurrent.BlockingDeque<E> extends java.util.concurrent.BlockingQueue<E>, java.util.Deque<E>
    |  |     |     |  |  |              |     |  |
-   +--|-----|-----|--|--|--------------+-----|--+--class java.util.concurrent.LinkedBlockingDeque<E>
+   +--|-----|-----|--|--|--------------+-----|--+--class java.util.concurrent.LinkedBlockingDeque<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.BlockingDeque<E>, java.io.Serializable
    |  |     |     |  |  |              |     |
-   |  |     |     |  |  |              |     +--interface java.util.concurrent.TransferQueue<E>
+   |  |     |     |  |  |              |     +--interface java.util.concurrent.TransferQueue<E> extends java.util.concurrent.BlockingQueue<E>
    |  |     |     |  |  |              |        |
-   +--|-----|-----|--|--|--------------+--------+--class java.util.concurrent.LinkedTransferQueue<E>
+   +--|-----|-----|--|--|--------------+--------+--class java.util.concurrent.LinkedTransferQueue<E> extends java.util.AbstractQueue<E> implements java.util.concurrent.TransferQueue<E>, java.io.Serializable
    |  |     |     |  |  |
-   |  |     |     |  +--|--interface java.util.Set<E>
+   |  |     |     |  +--|--interface java.util.Set<E> extends java.util.Collection<E>
    |  |     |     |     |  |
-   |  |     |     |     +--+--abstract class java.util.AbstractSet<E>
+   |  |     |     |     +--+--abstract class java.util.AbstractSet<E> extends java.util.AbstractCollection<E> implements java.util.Set<E>
    |  |     |     |        |  |
-   +--+-----|-----|--------+--+--class java.util.HashSet<E>
+   +--+-----|-----|--------+--+--class java.util.HashSet<E> extends java.util.AbstractSet<E> implements java.util.Set<E>, java.lang.Cloneable, java.io.Serializable
    |  |     |     |        |  |  |
-   +--+-----|-----|--------+--|--+--class java.util.LinkedHashSet<E>
+   +--+-----|-----|--------+--|--+--class java.util.LinkedHashSet<E> extends java.util.HashSet<E> implements java.util.Set<E>, java.lang.Cloneable, java.io.Serializable
    |  |     |     |        |  |
-   +--|-----|-----|--------|--+--class java.util.concurrent.CopyOnWriteArraySet<E>
+   +--|-----|-----|--------|--+--class java.util.concurrent.CopyOnWriteArraySet<E> extends java.util.AbstractSet<E> implements java.io.Serializable
    |  |     |     |        |  |
-   |  |     |     |        +--|--interface java.util.SortedSet<E>
+   |  |     |     |        +--|--interface java.util.SortedSet<E> extends java.util.Set<E>
    |  |     |     |           |  |
-   |  |     |     |           |  +--interface java.util.NavigableSet<E>
+   |  |     |     |           |  +--interface java.util.NavigableSet<E> extends java.util.SortedSet<E>
    |  |     |     |           |     |
-   +--+-----|-----|-----------+-----+--class java.util.TreeSet<E>
+   +--+-----|-----|-----------+-----+--class java.util.TreeSet<E> extends java.util.AbstractSet<E> implements java.util.NavigableSet<E>, java.lang.Cloneable, java.io.Serializable
    |  |     |     |
-   |  |     +-----|--interface java.util.SortedMap<K, V>
+   |  |     +-----|--interface java.util.SortedMap<K, V> extends java.util.Map<K, V>
    |  |     |     |  |
-   |  |     |     |  +--interface java.util.NavigableMap<K, V>
+   |  |     |     |  +--interface java.util.NavigableMap<K, V> extends java.util.SortedMap<K, V>
    |  |     |     |     |
-   +--+-----|-----+-----+--class java.util.TreeMap<K, V>
+   +--+-----|-----+-----+--class java.util.TreeMap<K, V> extends java.util.AbstractMap<K, V> implements java.util.NavigableMap<K, V>, java.lang.Cloneable, java.io.Serializable
    |        |     |
-   |        +-----|--interface java.util.concurrent.ConcurrentMap<K, V>
+   |        +-----|--interface java.util.concurrent.ConcurrentMap<K, V> extends java.util.Map<K, V>
    |              |  |
-   +--------------+--+--class java.util.concurrent.ConcurrentHashMap<K, V>
+   +--------------+--+--class java.util.concurrent.ConcurrentHashMap<K, V> extends java.util.AbstractMap<K, V> implements java.util.concurrent.ConcurrentMap<K, V>, java.io.Serializable
