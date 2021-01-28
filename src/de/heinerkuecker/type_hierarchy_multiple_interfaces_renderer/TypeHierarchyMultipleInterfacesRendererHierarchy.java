@@ -50,11 +50,11 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
 
     @Override
     public int hashCode() {
-        return Objects.hash(clazz);
+        return Objects.hash(this.clazz);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -64,8 +64,8 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
         if (getClass() != obj.getClass()) {
             return false;
         }
-        TypeHierarchyMultipleInterfacesRendererHierarchy other = (TypeHierarchyMultipleInterfacesRendererHierarchy) obj;
-        return Objects.equals(clazz, other.clazz);
+        final TypeHierarchyMultipleInterfacesRendererHierarchy other = (TypeHierarchyMultipleInterfacesRendererHierarchy) obj;
+        return Objects.equals(this.clazz, other.clazz);
     }
 
     @Override
@@ -92,7 +92,7 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
         //    return -1;
         //}
 
-        final int thisSuperHierarchiesCount = superClassAndInterfaces.size();
+        final int thisSuperHierarchiesCount = this.superClassAndInterfaces.size();
         final int otherSuperHierarchiesCount = o.superClassAndInterfaces.size();
         if ( thisSuperHierarchiesCount < otherSuperHierarchiesCount )
         {
@@ -132,9 +132,9 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
     {
         return
                 //this.getClass().getSimpleName() + "[" +
-                "clazz=" + clazz + ", " +
-                "superClassAndInterfaces=" + superClassAndInterfaces + ", " +
-                "subHierarchies=" + Arrays.toString(subHierarchies) +
+                "clazz=" + this.clazz + ", " +
+                "superClassAndInterfaces=" + this.superClassAndInterfaces + ", " +
+                "subHierarchies=" + Arrays.toString(this.subHierarchies) +
                 //"]"
                 "";
     }
@@ -158,7 +158,7 @@ implements Comparable<TypeHierarchyMultipleInterfacesRendererHierarchy>
         //    System.out.println( "debug break" ); // TODO only for debug
         //}
 
-        final Set<Class<?>> extenderAndImplementer = extenderAndImplementerMap.get( thisClass );
+        final Set<Class<?>> extenderAndImplementer = this.extenderAndImplementerMap.get( thisClass );
 
         if ( extenderAndImplementer != null )
         {

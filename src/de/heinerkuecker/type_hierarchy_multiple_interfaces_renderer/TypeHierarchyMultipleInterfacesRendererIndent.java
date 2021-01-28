@@ -78,7 +78,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
         for ( final Class<?> clazz : this.classes )
         {
-            if ( renderJavadocTooltips &&
+            if ( this.renderJavadocTooltips &&
                     clazz != null &&
                     superClassAndInterfaces.contains( clazz ) )
             {
@@ -111,7 +111,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             else if ( superClassAndInterfaces.contains( clazz ) )
             {
                 // line connector
-                if ( renderJavadocTooltips )
+                if ( this.renderJavadocTooltips )
                 {
                     final String classStr =
                             //.getName()
@@ -131,7 +131,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
                     buff.append( '+' );
                 }
 
-                if ( renderJavadocTooltips )
+                if ( this.renderJavadocTooltips )
                 {
                     subIndentStr = "<b title='" + tooltipBuff + "'>--</b>";
                 }
@@ -144,7 +144,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             else
             {
                 // crossing lines without connection
-                if ( renderJavadocTooltips )
+                if ( this.renderJavadocTooltips )
                 {
                     //buff.append( "<b title='" + clazz/*.getName()*/ + "'>|</b>" );
                     final String classStr =
@@ -224,7 +224,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
         //        this.lineSeparatorStr +
         //        "|  ";
 
-        if ( renderJavadocTooltips )
+        if ( this.renderJavadocTooltips )
         {
             final String classStr =
                     //.getName()
@@ -349,10 +349,10 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             }
         }
 
-        int classesLastIndexWoRightNulls = classes.length - 1;
+        int classesLastIndexWoRightNulls = this.classes.length - 1;
         for ( ; classesLastIndexWoRightNulls >= 0 ; --classesLastIndexWoRightNulls )
         {
-            if ( classes[ classesLastIndexWoRightNulls ] != null )
+            if ( this.classes[ classesLastIndexWoRightNulls ] != null )
             {
                 break;
             }
@@ -391,7 +391,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             }
             else
             {
-                if ( renderJavadocTooltips )
+                if ( this.renderJavadocTooltips )
                 {
                     final String classStr =
                             //.getName()
@@ -423,8 +423,8 @@ class TypeHierarchyMultipleInterfacesRendererIndent
     {
         return
                 //"[" +
-                "classes=" + Arrays.toString(classes) + "\n" +
-                "lineSeparatorStr=" + lineSeparatorStr /*+ ", "*/
+                "classes=" + Arrays.toString(this.classes) + "\n" +
+                "lineSeparatorStr=" + this.lineSeparatorStr /*+ ", "*/
                 //"]"
                 ;
     }

@@ -93,9 +93,9 @@ public class TypeHierarchyMultipleInterfacesRenderer
      */
     public String render()
     {
-        /*final Map<Class<?>, Set<Class<?>>>*/ extenderAndImplementerMap = createExtenderAndImplementerMap();
+        /*final Map<Class<?>, Set<Class<?>>>*/ this.extenderAndImplementerMap = createExtenderAndImplementerMap();
 
-        final Set<Class<?>> roots = getRoots( extenderAndImplementerMap );
+        final Set<Class<?>> roots = getRoots( this.extenderAndImplementerMap );
 
         final TypeHierarchyMultipleInterfacesRendererHierarchy[] hierarchies = new TypeHierarchyMultipleInterfacesRendererHierarchy[ roots.size() ];
         final Map<Class<?>, TypeHierarchyMultipleInterfacesRendererHierarchy> hierarchyMap = new HashMap<>();
@@ -108,7 +108,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                             // superClass
                             null ,
                             root ,
-                            extenderAndImplementerMap ,
+                            this.extenderAndImplementerMap ,
                             hierarchyMap );
         }
 
@@ -117,7 +117,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
         final StringBuilder buff = new StringBuilder();
 
         final String indentPrefix;
-        if ( javadocMode )
+        if ( this.javadocMode )
         {
             indentPrefix = " * ";
             buff.append( indentPrefix );
@@ -130,12 +130,12 @@ public class TypeHierarchyMultipleInterfacesRenderer
         }
 
         //TypeHierarchyMultipleInterfacesRendererIndent indent =
-        indent =
+        this.indent =
                 new TypeHierarchyMultipleInterfacesRendererIndent(
-                        withAbstractOrFinal ,
-                        withEnum ,
-                        withAnonymOrLocal ,
-                        withGenerics ,
+                        this.withAbstractOrFinal ,
+                        this.withEnum ,
+                        this.withAnonymOrLocal ,
+                        this.withGenerics ,
                         //withSuperClassAndSuperInterfaces ,
                         //renderJavadocTooltips
                         ( this.javadocMode ? this.renderJavadocTooltips : false ) ,
@@ -143,7 +143,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         //null ,
                         //indentPrefix ,
                         deepClone(
-                                extenderAndImplementerMap ) ,
+                                this.extenderAndImplementerMap ) ,
                         //lineSeparatorStr
                         //"" ,
                         //classes
@@ -161,7 +161,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
             if ( ! isFirstRootLoopRun )
             {
                 buff.append( indentPrefix );
-                buff.append( rtrim( indent.lineSeparatorStr ) );
+                buff.append( rtrim( this.indent.lineSeparatorStr ) );
                 buff.append( '\n' );
             }
             else
@@ -173,9 +173,9 @@ public class TypeHierarchyMultipleInterfacesRenderer
 
             alreadyRenderedClasses.add( hierarchy.clazz );
 
-            buff.append( indent.getConnectedStr( Collections.emptySet() ) );
+            buff.append( this.indent.getConnectedStr( Collections.emptySet() ) );
 
-            if ( javadocMode )
+            if ( this.javadocMode )
             {
                 buff.append( "{@link " ); // begin java doc link
                 //buff.append( hierarchy.clazz.getName() );
@@ -198,14 +198,14 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 buff.append( classStr );
             }
 
-            if ( javadocMode )
+            if ( this.javadocMode )
             {
                 buff.append( '}' ); // end java doc link
             }
 
             buff.append( '\n' );
 
-            /*indent =*/ indent.add( hierarchy.clazz );
+            /*indent =*/ this.indent.add( hierarchy.clazz );
         }
 
         // loop over sub hierarchies
@@ -223,7 +223,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
             }
         }
 
-        if ( javadocMode )
+        if ( this.javadocMode )
         {
             buff.append( indentPrefix );
             buff.append( "</pre>" ); // end ascii art in html
@@ -240,7 +240,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
     {
         final Map<Class<?>, Set<Class<?>>> clone = new HashMap<>();
 
-        for ( Entry<Class<?>, Set<Class<?>>> entry : extenderAndImplementerMapToClone.entrySet() )
+        for ( final Entry<Class<?>, Set<Class<?>>> entry : extenderAndImplementerMapToClone.entrySet() )
         {
             clone.put(
                     entry.getKey() ,
@@ -254,7 +254,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
     {
         final Map<Class<?>, Set<Class<?>>> newExtenderAndImplementerMap = new HashMap<>();
 
-        for ( final Class<?> clazz : classes )
+        for ( final Class<?> clazz : this.classes )
         {
             if ( clazz.isArray() ||
                     clazz.isPrimitive() )
@@ -275,7 +275,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
     private void checkForUnconnectedClass(
             final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMapParam )
     {
-        for ( final Class<?> clazz : classes )
+        for ( final Class<?> clazz : this.classes )
         {
             if ( ! extenderAndImplementerMapParam.containsKey( clazz ) )
             {
@@ -307,7 +307,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
             final Class<?> superClass = clazz.getSuperclass();
 
             if ( superClass != null &&
-                    ( ! excludes.contains( superClass ) ) )
+                    ( ! this.excludes.contains( superClass ) ) )
             {
                 putInExtenderAndImplementerMap(
                         extenderAndImplementerMapToPutIn ,
@@ -322,9 +322,9 @@ public class TypeHierarchyMultipleInterfacesRenderer
 
         final Class<?>[] interfaces = clazz.getInterfaces();
 
-        for ( Class<?> interfaze : interfaces )
+        for ( final Class<?> interfaze : interfaces )
         {
-            if ( ! excludes.contains( interfaze ) )
+            if ( ! this.excludes.contains( interfaze ) )
             {
                 putInExtenderAndImplementerMap(
                         extenderAndImplementerMapToPutIn ,
@@ -462,13 +462,13 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     alreadyRenderedClasses.add( subHierarchy.clazz );
 
                     buff.append( indentPrefix );
-                    buff.append( rtrim( indent.lineSeparatorStr ) );
+                    buff.append( rtrim( this.indent.lineSeparatorStr ) );
                     buff.append( '\n' );
 
                     buff.append( indentPrefix );
-                    buff.append( indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
+                    buff.append( this.indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
 
-                    if ( javadocMode )
+                    if ( this.javadocMode )
                     {
                         buff.append( "{@link " ); // begin java doc link
                         //buff.append( subHierarchy.clazz.getName() );
@@ -491,7 +491,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                         buff.append( classStr );
                     }
 
-                    if ( javadocMode )
+                    if ( this.javadocMode )
                     {
                         buff.append( '}' ); // end java doc link
                     }
@@ -501,13 +501,13 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     if ( subHierarchy.subHierarchies != null &&
                             subHierarchy.subHierarchies.length > 0 )
                     {
-                        /*indent =*/ indent.add( subHierarchy.clazz );
+                        /*indent =*/ this.indent.add( subHierarchy.clazz );
                     }
                     //else
                     //{
                     //    //indent.removeSubClass( subHierarchy.clazz );
                     //}
-                    indent.removeSubClass( subHierarchy.clazz );
+                    this.indent.removeSubClass( subHierarchy.clazz );
                 }
             }
 
