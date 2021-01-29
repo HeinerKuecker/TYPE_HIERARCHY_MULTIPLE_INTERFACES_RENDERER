@@ -40,6 +40,7 @@ public class GenericsTypeExample
         hierarchyRenderer.withGenerics = true;
         hierarchyRenderer.excludes.add( Object.class );
         hierarchyRenderer.withSuperClassAndSuperInterfaces = true;
+        hierarchyRenderer.superClassAndSuperInterfacesMultiLined = true;
         //hierarchyRenderer.javadocMode = true;
         //hierarchyRenderer.renderJavadocTooltips = true;
 

@@ -63,6 +63,13 @@ public class TypeHierarchyMultipleInterfacesRenderer
     public boolean withSuperClassAndSuperInterfaces;
 
     /**
+     * Output super class and super interfaces in multiple lines for better readability.
+     *
+     * Only for console output, not for javadoc output.
+     */
+    public boolean superClassAndSuperInterfacesMultiLined;
+
+    /**
      * Classes, interfaces, enumerations to show.
      */
     public Class<?>[] classes;
@@ -168,22 +175,43 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 isFirstRootLoopRun = false;
             }
 
-            buff.append( indentPrefix );
-
             alreadyRenderedClasses.add( hierarchy.clazz );
-
-            buff.append( this.indent.getConnectedStr( Collections.emptySet() ) );
 
             if ( this.javadocMode )
             {
+                buff.append( indentPrefix );
+                buff.append( this.indent.getConnectedStr( Collections.emptySet() ) );
+
                 buff.append( "{@link " ); // begin java doc link
                 //buff.append( hierarchy.clazz.getName() );
                 buff.append(
                         InnerOrNestedClassName.innerOrNestedClassName(
                                 hierarchy.clazz ) );
             }
+            else if ( withSuperClassAndSuperInterfaces &&
+                    superClassAndSuperInterfacesMultiLined )
+            {
+                final String[] classStrLines =
+                        classStrMultilined(
+                                hierarchy.clazz ,
+                                this.withAbstractOrFinal ,
+                                this.withEnum ,
+                                this.withAnonymOrLocal );
+
+                for ( final String classStrLine : classStrLines )
+                {
+                    buff.append( indentPrefix );
+                    buff.append( this.indent.getConnectedStr( Collections.emptySet() ) );
+
+                    buff.append( classStrLine );
+                    buff.append( '\n' );
+                }
+            }
             else
             {
+                buff.append( indentPrefix );
+                buff.append( this.indent.getConnectedStr( Collections.emptySet() ) );
+
                 final String classStr =
                         //.getName()
                         classToStr(
@@ -195,14 +223,14 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                 this.withSuperClassAndSuperInterfaces );
 
                 buff.append( classStr );
+                buff.append( '\n' );
             }
 
             if ( this.javadocMode )
             {
                 buff.append( '}' ); // end java doc link
+                buff.append( '\n' );
             }
-
-            buff.append( '\n' );
 
             /*indent =*/ this.indent.add( hierarchy.clazz );
         }
@@ -464,19 +492,55 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     buff.append( rtrim( this.indent.lineSeparatorStr ) );
                     buff.append( '\n' );
 
-                    buff.append( indentPrefix );
-                    buff.append( this.indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
-
                     if ( this.javadocMode )
                     {
+                        buff.append( indentPrefix );
+                        buff.append( this.indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
+                        this.indent.removeSubClassWithoutTrim( subHierarchy.clazz );
+
                         buff.append( "{@link " ); // begin java doc link
                         //buff.append( subHierarchy.clazz.getName() );
                         buff.append(
                                 InnerOrNestedClassName.innerOrNestedClassName(
                                         subHierarchy.clazz ) );
                     }
+                    else if ( withSuperClassAndSuperInterfaces &&
+                            superClassAndSuperInterfacesMultiLined )
+                    {
+                        buff.append( indentPrefix );
+                        buff.append( this.indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
+                        this.indent.removeSubClassWithoutTrim( subHierarchy.clazz );
+
+                        final String[] classStrLines =
+                                classStrMultilined(
+                                        subHierarchy.clazz ,
+                                        this.withAbstractOrFinal ,
+                                        this.withEnum ,
+                                        this.withAnonymOrLocal );
+
+                        boolean isFirstLoopRun = true;
+                        for ( final String classStrLine : classStrLines )
+                        {
+                            if ( isFirstLoopRun )
+                            {
+                                isFirstLoopRun = false;
+                            }
+                            else
+                            {
+                                buff.append( indentPrefix );
+                                buff.append( this.indent.lineSeparatorStr );
+                            }
+
+                            buff.append( classStrLine );
+                            buff.append( '\n' );
+                        }
+                    }
                     else
                     {
+                        buff.append( indentPrefix );
+                        buff.append( this.indent.getConnectedStr( subHierarchy.superClassAndInterfaces ) );
+                        this.indent.removeSubClassWithoutTrim( subHierarchy.clazz );
+
                         final String classStr =
                                 //.getName()
                                 classToStr(
@@ -488,14 +552,14 @@ public class TypeHierarchyMultipleInterfacesRenderer
                                         this.withSuperClassAndSuperInterfaces );
 
                         buff.append( classStr );
+                        buff.append( '\n' );
                     }
 
                     if ( this.javadocMode )
                     {
                         buff.append( '}' ); // end java doc link
+                        buff.append( '\n' );
                     }
-
-                    buff.append( '\n' );
 
                     if ( subHierarchy.subHierarchies != null &&
                             subHierarchy.subHierarchies.length > 0 )
@@ -506,7 +570,8 @@ public class TypeHierarchyMultipleInterfacesRenderer
                     //{
                     //    //indent.removeSubClass( subHierarchy.clazz );
                     //}
-                    this.indent.removeSubClass( subHierarchy.clazz );
+                    //this.indent.removeSubClass( subHierarchy.clazz );
+                    this.indent.trim();
                 }
             }
 
@@ -598,6 +663,38 @@ public class TypeHierarchyMultipleInterfacesRenderer
         return
                 typePrefix +
                 classNameAndTypeparams;
+    }
+
+    static String[] classStrMultilined(
+            final Class<?> clazz ,
+            final boolean withAbstractOrFinal ,
+            final boolean withEnum ,
+            final boolean withAnonymOrLocal )
+    {
+        final String classNameAndTypeparamsMultiLinedStr =
+                ClassDeclarationToStrWithGenerics.typeToStrTuple(
+                        clazz ).getTypeHierarchyMultipleInterfacesRendererMultiLineStr();
+
+        final String classNameAndTypeparamsMultiLinedStrTabsToSpaces =
+                classNameAndTypeparamsMultiLinedStr.replaceAll(
+                        "\t" ,
+                        "    " );
+
+        final String[] lines =
+                classNameAndTypeparamsMultiLinedStrTabsToSpaces.split(
+                        // https://stackoverflow.com/questions/454908/split-java-string-by-new-line
+                        "\\r?\\n" );
+
+        final String typePrefix =
+                TypePrefix.getTypePrefix(
+                        clazz ,
+                        withAbstractOrFinal ,
+                        withEnum ,
+                        withAnonymOrLocal );
+
+        lines[ 0 ] = typePrefix + lines[ 0 ];
+
+        return lines;
     }
 
     /**

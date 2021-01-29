@@ -197,13 +197,18 @@ public class ClassDeclarationToStrWithGenerics
             return result;
         }
 
-        public String getMyPreferredFormatStr()
+        /**
+         * Special multiple line format for <a href="https://github.com/HeinerKuecker/TYPE_HIERARCHY_MULTIPLE_INTERFACES_RENDERER">HeinerKuecker TYPE_HIERARCHY_MULTIPLE_INTERFACES_RENDERER on GitHub</a>.
+         *
+         * @return special format
+         */
+        public String getTypeHierarchyMultipleInterfacesRendererMultiLineStr()
         {
             String result = classDeclarationStr; // TODO StringBuilder
 
             if ( superClassDeclarationStr != null )
             {
-                result += "\nextends " + superClassDeclarationStr;
+                result += "\n\textends " + superClassDeclarationStr;
             }
 
             if ( this.superInterfacesDeclarationStrs != null &&
@@ -211,17 +216,17 @@ public class ClassDeclarationToStrWithGenerics
             {
                 if ( isInterface )
                 {
-                    result += "\nextends ";
+                    result += "\n\textends ";
                 }
                 else
                 {
                     if ( this.superInterfacesDeclarationStrs.length > 1 )
                     {
-                        result += "\nimplements\n\t";
+                        result += "\n\timplements\n\t\t";
                     }
                     else
                     {
-                        result += "\nimplements ";
+                        result += "\n\timplements ";
                     }
                 }
 
@@ -234,7 +239,7 @@ public class ClassDeclarationToStrWithGenerics
                     }
                     else
                     {
-                        result += " ,\n\t";
+                        result += ",\n\t\t";
                     }
                     result += superInterfacesDeclarationStr;
                 }
@@ -353,6 +358,7 @@ public class ClassDeclarationToStrWithGenerics
 
     public static void main(String[] args)
     {
+        // TODO convert to unit test
         ClassDeclarationStrs typeToStrTuple =
                 typeToStrTuple(
                         ArrayList.class );
@@ -365,6 +371,6 @@ public class ClassDeclarationToStrWithGenerics
 
         System.out.println();
 
-        System.out.println( typeToStrTuple.getMyPreferredFormatStr() );
+        System.out.println( typeToStrTuple.getTypeHierarchyMultipleInterfacesRendererMultiLineStr() );
     }
 }

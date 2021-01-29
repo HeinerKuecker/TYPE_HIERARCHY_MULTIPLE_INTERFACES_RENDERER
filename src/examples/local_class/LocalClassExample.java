@@ -38,6 +38,7 @@ public class LocalClassExample
         hierarchyRenderer.withEnum = true;
         hierarchyRenderer.withAnonymOrLocal = true;
         hierarchyRenderer.withSuperClassAndSuperInterfaces = true;
+        hierarchyRenderer.superClassAndSuperInterfacesMultiLined = true;
         //hierarchyRenderer.excludes.add( Object.class );
 
         System.out.println( hierarchyRenderer.render() );

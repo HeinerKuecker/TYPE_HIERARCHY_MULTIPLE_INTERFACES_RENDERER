@@ -15,13 +15,13 @@ import java.util.Set;
  */
 class TypeHierarchyMultipleInterfacesRendererIndent
 {
-    final boolean withAbstractOrFinal;
+    private final boolean withAbstractOrFinal;
 
-    final boolean withEnum;
+    private final boolean withEnum;
 
-    final boolean withAnonymOrLocal;
+    private final boolean withAnonymOrLocal;
 
-    final boolean withGenerics;
+    private final boolean withGenerics;
 
     //final boolean withSuperClassAndSuperInterfaces;
 
@@ -30,7 +30,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
     // reference to global data structure
     private final Map<Class<?>, Set<Class<?>>> extenderAndImplementerMap;
 
-    final boolean renderJavadocTooltips;
+    private final boolean renderJavadocTooltips;
 
     String lineSeparatorStr = "";
 
@@ -292,7 +292,7 @@ class TypeHierarchyMultipleInterfacesRendererIndent
      *
      * @param subClassToRemove already rendered class (or interface, enum and so on)
      */
-    public void removeSubClass(
+    public void removeSubClassWithoutTrim(
             final Class<?> subClassToRemove )
     {
         //if ( subClassToRemove.equals( java.util.AbstractQueue.class ) )
@@ -330,12 +330,12 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
                 this.extenderAndImplementerMap.remove( clazz );
 
-                this.removeClass( clazz );
+                this.removeClassWithoutTrim( clazz );
             }
         }
     }
 
-    private void removeClass(
+    private void removeClassWithoutTrim(
             final Class<?> classToRemove )
     {
         for ( int i = 0 ; i < this.classes.length ; ++i )
@@ -345,10 +345,16 @@ class TypeHierarchyMultipleInterfacesRendererIndent
             if ( classToRemove.equals( clazz ) )
             {
                 this.classes[ i ] = null;
+
+                updateLineSeparatorStr();
+
                 break;
             }
         }
+    }
 
+    void trim()
+    {
         int classesLastIndexWoRightNulls = this.classes.length - 1;
         for ( ; classesLastIndexWoRightNulls >= 0 ; --classesLastIndexWoRightNulls )
         {
@@ -376,11 +382,11 @@ class TypeHierarchyMultipleInterfacesRendererIndent
 
         this.classes = newClasses;
 
-        //if ( this.parent != null )
-        //{
-        //    this.parent.removeClass( classToRemove );
-        //}
+        updateLineSeparatorStr();
+    }
 
+    private void updateLineSeparatorStr()
+    {
         final StringBuilder buff = new StringBuilder();
 
         for ( int i = 0 ; i < this.classes.length ; ++i )
