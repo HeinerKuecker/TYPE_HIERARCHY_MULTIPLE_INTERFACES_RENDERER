@@ -5,6 +5,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
+import java.util.Arrays;
 
 import de.heinerkuecker.inner_or_nested_class_names_in_dot_notation.InnerOrNestedClassName;
 
@@ -121,17 +122,42 @@ public class TypeArgumentsToStr
 
             if ( ! arrayIsEmpty( lowerBounds ) )
             {
-                throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
-            }
+                //throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+                actualTypeArgumentStr += "? super ";
 
-            if ( upperBounds.length != 1 ||
-                    ( ! upperBounds[ 0 ].equals( Object.class ) ) )
+                if ( lowerBounds.length != 1 )
+                {
+                    throw new IllegalStateException( Arrays.toString( lowerBounds ) );
+                }
+
+                actualTypeArgumentStr +=
+                        typeArgumentToStr(
+                                lowerBounds[ 0 ] );
+            }
+            else if (
+                    upperBounds.length > 0 &&
+                    ( upperBounds.length != 1 ||
+                    ( ! upperBounds[ 0 ].equals( Object.class ) ) ) )
             {
-                throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
-            }
+                //throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
 
-            //throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
-            actualTypeArgumentStr += "?";
+                if ( upperBounds.length > 1 )
+                {
+                    // not supported by Java
+                    throw new IllegalStateException( Arrays.toString( upperBounds ) );
+                }
+
+                actualTypeArgumentStr += "? extends ";
+
+                actualTypeArgumentStr +=
+                        typeArgumentToStr(
+                                upperBounds[ 0 ] );
+            }
+            else
+            {
+                //throw new RuntimeException( "not implemented " + actualTypeArgument + " " + actualTypeArgument.getClass() );
+                actualTypeArgumentStr += "?";
+            }
         }
         else
         {

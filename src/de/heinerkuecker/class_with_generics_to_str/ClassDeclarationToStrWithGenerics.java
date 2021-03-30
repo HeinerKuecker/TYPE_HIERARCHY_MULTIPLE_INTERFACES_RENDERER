@@ -34,6 +34,7 @@ public class ClassDeclarationToStrWithGenerics
                         clazz );
     }
 
+    // TODO unused
     public static String typeWithTypeArgumentsToString(
             final Type type )
     {
