@@ -259,6 +259,12 @@ public class TypeHierarchyMultipleInterfacesRenderer
             buff.append( "Copy the console output into your javadoc comment\n" );
         }
 
+        if ( ( ! javadocMode ) &&
+                superClassAndSuperInterfacesMultiLined )
+        {
+            clearUnconnectedVerticalLines( buff );
+        }
+
         return buff.toString();
     }
 
@@ -529,6 +535,7 @@ public class TypeHierarchyMultipleInterfacesRenderer
                             {
                                 buff.append( indentPrefix );
                                 buff.append( this.indent.lineSeparatorStr );
+                                buff.append( '|' );
                             }
 
                             buff.append( classStrLine );
@@ -724,6 +731,87 @@ public class TypeHierarchyMultipleInterfacesRenderer
                 str.substring(
                         0 ,
                         trimmedLength );
+    }
+
+    private static void clearUnconnectedVerticalLines(
+            final StringBuilder buff )
+    {
+        final HashSet<Character> belowLineConnectedChars =
+                new HashSet<>(
+                        Arrays.asList(
+                                Character.valueOf( '|' ) ,
+                                Character.valueOf( '+' ) ) );
+
+        final String[] lines = buff.toString().split( "\n" );
+
+        for ( int linesIndex = lines.length - 1 ; linesIndex >= 0 ; linesIndex-- )
+        {
+            int unconnectedVerticalLineCharFromIndex = 0;
+
+            final StringBuilder lineBuff = new StringBuilder( lines[ linesIndex ] );
+
+            int unconnectedVerticalLineCharIndex;
+            while ( ( unconnectedVerticalLineCharIndex =
+                    lineBuff.indexOf(
+                    //str
+                    "|" ,
+                    //fromIndex
+                    unconnectedVerticalLineCharFromIndex ) ) >= 0 )
+            {
+                if ( ( linesIndex == lines.length - 1 ) ||
+                        lines[ linesIndex + 1 ].length() <= unconnectedVerticalLineCharIndex ||
+                        ! belowLineConnectedChars.contains( lines[ linesIndex + 1 ].charAt( unconnectedVerticalLineCharIndex ) ) )
+                {
+                    lineBuff.replace(
+                            //start
+                            unconnectedVerticalLineCharIndex ,
+                            //end
+                            unconnectedVerticalLineCharIndex + 1 ,
+                            //str
+                            " " );
+                }
+
+                unconnectedVerticalLineCharFromIndex = unconnectedVerticalLineCharIndex + 1;
+            }
+
+            lines[ linesIndex ] = lineBuff.toString();
+        }
+
+        buff.setLength(
+                //newLength
+                0 );
+
+        for ( final String line : lines )
+        {
+            buff.append( line );
+            buff.append( '\n' );
+        }
+
+        // spike code only for last line
+        //final int lastLineStartIndex =
+        //        buff.lastIndexOf(
+        //                "\n" ,
+        //                //fromIndex
+        //                buff.length() - 2 );
+        //
+        //if ( lastLineStartIndex >= 0 )
+        //{
+        //    int unconnectedVerticalLineCharIndex;
+        //    while ( ( unconnectedVerticalLineCharIndex = buff.indexOf(
+        //            //str
+        //            "|" ,
+        //            //fromIndex
+        //            lastLineStartIndex ) ) >= 0 )
+        //    {
+        //        buff.replace(
+        //                //start
+        //                unconnectedVerticalLineCharIndex ,
+        //                //end
+        //                unconnectedVerticalLineCharIndex + 1 ,
+        //                //str
+        //                " " );
+        //    }
+        //}
     }
 
 }
